@@ -1,0 +1,111 @@
+= content_for :title, "Policy Details"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet
+        .portlet-content.nopadding
+          %ul#tabs.tabs
+            %li.active= link_to "Policy", "#policy"
+            %li= link_to "Policy Holder", "#policy_holder"
+            %li= link_to "Beneficiaries", "#beneficiaries"
+            %li= link_to "Comments", "#comments"
+          %br
+          #policy.tab
+            %div
+              %label Policy Number
+              = @policy.policy_number
+            %div
+              %label Agent
+              = @policy.user.login
+            %div
+              %label Date Created
+              = @policy.user.login
+            %br
+          #policy_holder.tab
+            %div
+              %label Title
+              = @policy.user.login
+            %div
+              %label First Name
+              = @policy.user.login
+            %div
+              %label Middle Names
+              = @policy.user.login
+            %div
+              %label Last Name
+              = @policy.user.login
+            %div
+              %label Date of Birth
+              = @policy.user.login
+            %div
+              %label Address Line 1
+              = @policy.user.login
+            %div
+              %label Address Line 2
+              = @policy.user.login
+            %div
+              %label Postal Town
+              = @policy.user.login
+            %div
+              %label County
+              = @policy.user.login
+            %div
+              %label Postcode
+              = @policy.user.login
+          #beneficiaries.tab
+            %div
+              %label Title
+              = @policy.user.login
+            %div
+              %label First Name
+              = @policy.user.login
+            %div
+              %label Middle Names
+              = @policy.user.login
+            %div
+              %label Last Name
+              = @policy.user.login
+            %div
+              %label Date of Birth
+              = @policy.user.login
+            %div
+              %label Address Line 1
+              = @policy.user.login
+            %div
+              %label Address Line 2
+              = @policy.user.login
+            %div
+              %label Postal Town
+              = @policy.user.login
+            %div
+              %label County
+              = @policy.user.login
+            %div
+              %label Postcode
+              = @policy.user.login
+            %div
+              %label Relationship to Policy Holder
+              = @policy.user.login
+          #comments.tab
+            %textarea
+
+:javascript
+  $(function() {
+    $(".tab:first").show();
+    $("#tabs li").removeClass("active");
+    $("#tabs a:first").parents("li").addClass("active");
+    $(".tab:not(:first)").hide();
+
+    $("#tabs a").click(function() {
+      var ref = $(this).attr("href").split('#')[1];
+      $("#tabs li").removeClass("active");
+      $(this).parents("li").addClass("active");
+      $(".tab:not(#" + ref + ")").hide();
+      $("#" + ref).show();
+      return false;
+    })
+  })

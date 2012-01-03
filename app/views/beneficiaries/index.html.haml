@@ -1,0 +1,55 @@
+= content_for :title, "Beneficiary Search"
+
+= content_for :search do
+  #search-bar
+    .wrapper
+      .clear
+      %form.search{:method=>"get"}
+        %h1
+          Beneficiaries
+        %input{:type=>"text", :id=>"query", :name=>"s[name]"}
+        .aoq-wrapper
+          .aoq
+        %button.search-button
+          %div
+            = image_tag "search_white.png"
+      #advanced
+        %a.close-button
+        = form_for :s, :method => "get" do |f|
+          .simple-search
+            %label
+              Name
+            = f.text_field :name
+            %label
+              Street Name
+            = f.text_field :street_name
+          %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
+            %div
+              = image_tag "search_white.png"
+          = link_to "More Search Options", "#", :style => "float: right; margin-top: 18px", :class => "more-search"
+        .clear
+
+.block
+  .block_content
+    #portlets
+      .portlet
+        .portlet-content.nopadding
+          %table
+            %thead
+              %tr
+                %th Policy Number
+                %th Policy Holder
+                %th Name
+                %th Post Code
+                %th Relationship
+                %th Date Added
+            %tbody
+              - for beneficiary in @beneficiaries
+                %tr
+                  %td
+                    = link_to beneficiary.policy.policy_number, policy_path(beneficiary.policy)
+                  %td= beneficiary.policy.policy_holder.first_name + " " + beneficiary.policy.policy_holder.last_name
+                  %td= beneficiary.first_name + " " + beneficiary.last_name
+                  %td
+                  %td= beneficiary.relationship
+                  %td

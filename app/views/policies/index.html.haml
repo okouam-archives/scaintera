@@ -1,0 +1,36 @@
+= content_for :title, "Policy Search"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet
+        .portlet-content.nopadding
+          %table
+            %thead
+              %tr
+                %th Policy Number
+                %th Policy Holder
+                %th # Beneficiaries
+                %th Type
+                %th Status
+                %th Agent
+                %th Date Added
+                %th
+            %tbody
+              - for policy in @policies
+                %tr
+                  %td
+                    = link_to policy.policy_number, policy_path(policy)
+                  %td= policy.policy_holder.first_name + " " + policy.policy_holder.last_name
+                  %td= policy.beneficiaries.count
+                  %td= policy.category
+                  %td= policy.status
+                  %td= policy.user.login
+                  %td
+                  %td
+                    %a{href: "#"}
+                      %i
+                        Add Beneficiary

@@ -1,0 +1,31 @@
+#search-bar
+  .wrapper
+    .clear
+    %form.search{:method=>"get"}
+      %h1
+        Policy Holders
+      %input{:type=>"text", :id=>"query", :name=>"s[name]"}
+      .aoq-wrapper
+        .aoq
+      %button.search-button
+        %div
+          = image_tag "search_white.png"
+    %form.new-location{:method=>"get", :action => "/locations/new"}
+      %button.red-button
+        %div
+          New policy
+    #advanced
+      %a.close-button
+      = form_for :s, :method => "get" do |f|
+        .simple-search
+          %label
+            Name
+          = f.text_field :name
+          %label
+            Street Name
+          = f.text_field :street_name
+        %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
+          %div
+            = image_tag "search_white.png"
+        = link_to "More Search Options", "#", :style => "float: right; margin-top: 18px", :class => "more-search"
+      .clear
