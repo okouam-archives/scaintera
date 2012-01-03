@@ -16,5 +16,4 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'ruby-debug19', :require => 'ruby-debug'
 

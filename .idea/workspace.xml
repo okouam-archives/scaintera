@@ -59,10 +59,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_search.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_search.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/policy_holders/_search.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="20" selection-start="400" selection-end="400" vertical-scroll-proportion="0.3472222">
+            <state line="15" column="20" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.3935185">
               <folding />
             </state>
           </provider>
@@ -104,15 +113,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="131" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -123,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/policies_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/tabs.css.sass.erb" />
         <option value="$PROJECT_DIR$/app/views/policies/show.html.haml" />
@@ -139,6 +138,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/header.css.sass.erb" />
         <option value="$PROJECT_DIR$/app/views/policies/_search.html.haml" />
         <option value="$PROJECT_DIR$/app/views/policy_holders/_search.html.haml" />
+        <option value="$PROJECT_DIR$/Gemfile" />
       </list>
     </option>
   </component>
@@ -883,13 +883,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/policies/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="28" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="30" selection-start="1486" selection-end="1486" vertical-scroll-proportion="0.0">
@@ -990,7 +983,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/policy_holders/_search.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="400" selection-end="400" vertical-scroll-proportion="0.3472222">
+        <state line="15" column="20" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="18" selection-start="457" selection-end="457" vertical-scroll-proportion="0.3935185">
           <folding />
         </state>
       </provider>
