@@ -11,21 +11,39 @@
           %table
             %thead
               %tr
+                %th ID
                 %th Policy Holder
                 %th Postcode
+                %th City
                 %th # Beneficiaries
                 %th # Policies
                 %th Date Added
-                %th
+                %th{style: "width: 100px"}
             %tbody
               - for policy_holder in @policy_holders
                 %tr
-                  %td= policy_holder.first_name + " " + policy_holder.last_name
                   %td
-                  %td= policy_holder.beneficiaries.count
-                  %td= policy_holder.policies.count
+                    = policy_holder.id
                   %td
+                    = link_to policy_holder.first_name + " " + policy_holder.last_name, policy_holder_path(policy_holder)
+                  %td= Faker::Address.uk_postcode
+                  %td= Faker::Address.city
                   %td
-                    %a{href: "#"}
-                      %i
-                        Add Policy
+                    = link_to policy_holder.beneficiaries.count, beneficiaries_path
+                  %td
+                    = link_to policy_holder.policies.count, policies_path
+                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %td
+                    %button.gray-button
+                      %div
+                        New Policy
+          .clear
+          #pagination-wrapper
+            = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
+            %span#pagination-counter
+              = page_entries_info(@policies)
+            .clear
+:javascript
+  $(function() {
+    new App.Views.PolicyHolderSearch({el: "#search-bar"});
+  })

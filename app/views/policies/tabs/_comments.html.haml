@@ -1,0 +1,31 @@
+%ul.comments
+  %li
+    .authorship
+      = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+      %b
+        = Faker::Internet.user_name
+    .comment
+      = Faker::Lorem.sentence
+  %li
+    .authorship
+      = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+      %b
+        = Faker::Internet.user_name
+    .comment
+      = Faker::Lorem.sentence
+  %li
+    .authorship
+      = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+      %b
+        = Faker::Internet.user_name
+    .comment
+      = Faker::Lorem.sentence
+%textarea
+.actions
+  %button.blue-button
+    %div{style: "width: 150px"}
+      Add Comment
+
+:css
+  #comments ul.comments li {margin-bottom: 5px}
+  #comments textarea {margin-top: 10px}

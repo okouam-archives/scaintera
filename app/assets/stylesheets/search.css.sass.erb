@@ -15,7 +15,7 @@
         border-radius: 0
         padding: 5px
         padding-right: 20px
-        width: 400px
+        width: 300px
         position: relative
         top: -8px
     .aoq
@@ -26,5 +26,45 @@
       cursor: pointer
     button#submit.nodropdown
       margin-left: 3px
+
+
+.paggination a, .paggination span.current, .paggination span.disabled
+  border: 1px solid #ccc
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+  padding: 3px 6px
+  margin: 0 1px
+
+.paggination a.active, .paggination span.current
+  background: none
+  border: none
+  color: #434343
+
+#pagination-wrapper
+  font-size: 10px
+  clear: both
+  .paggination
+    font-size: 10px
+    font-weight: bold
+    padding-bottom: 11px
+    float: left
+    display: inline
+    margin-left: 5px
+    a:hover
+      color: #fff
+      background: #ec8526
+      border: 1px solid #d77011
+  #pagination-counter
+    display: inline-block
+    padding-bottom: 11px
+    margin-left: 5px
+    float: left
+  a.section
+    top: -10px
+    width: 82px
+    margin-bottom: 8px
+    position: relative
+    float: right
 
 

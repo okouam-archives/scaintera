@@ -3,42 +3,33 @@
     .clear
     %form.search{:method=>"get"}
       %h1
-        Policies
+        Users
       %input{:type=>"text", :id=>"query", :name=>"s[name]"}
       .aoq-wrapper
         .aoq
       %button.search-button
         %div
           = image_tag "search_white.png"
-    %form.new-location{:method=>"get", :action => "/policies/new"}
+    %form.new-location{:method=>"get", :action => "/users/new"}
       %button.red-button
         %div
-          New policy
+          New user
     #advanced
       %a.close-button
-      = form_for :policy, :method => "get" do |f|
+      = form_for :s, :method => "get" do |f|
         .simple-search
           %label
-            Policy Number
-          = f.text_field :number
+            Login
+          = f.text_field :name
           %label
-            Policy Holder
-          = f.text_field :policy_holder
+            Email
+          = f.text_field :street_name
           %label
-            Agent
-          = f.text_field :user
-          %label
-            Type
-          = f.text_field :user
+            Role
+          = f.text_field :street_name
           %label
             Status
-          = f.text_field :user
-          %label
-            Added After
-          = f.text_field :user
-          %label
-            Added Before
-          = f.text_field :user
+          = f.text_field :street_name
         %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
           %div
             = image_tag "search_white.png"

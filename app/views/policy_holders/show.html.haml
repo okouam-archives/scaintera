@@ -1,0 +1,38 @@
+= content_for :title, "Policy Details"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet
+        .portlet-content.nopadding
+          %ul#tabs.tabs
+            %li.active= link_to "Details", "#details"
+            %li= link_to "Address", "#address"
+            %li= link_to "Policies", "#policies"
+            %li= link_to "Comments", "#comments"
+          %br
+          #details.tab
+          #address.tab
+          #policies.tab
+          #comments.tab
+            %textarea
+
+:javascript
+  $(function() {
+    $(".tab:first").show();
+    $("#tabs li").removeClass("active");
+    $("#tabs a:first").parents("li").addClass("active");
+    $(".tab:not(:first)").hide();
+
+    $("#tabs a").click(function() {
+      var ref = $(this).attr("href").split('#')[1];
+      $("#tabs li").removeClass("active");
+      $(this).parents("li").addClass("active");
+      $(".tab:not(#" + ref + ")").hide();
+      $("#" + ref).show();
+      return false;
+    })
+  })

@@ -13,19 +13,24 @@
     %form.new-location{:method=>"get", :action => "/locations/new"}
       %button.red-button
         %div
-          New policy
+          New policy holder
     #advanced
       %a.close-button
       = form_for :s, :method => "get" do |f|
         .simple-search
           %label
-            Name
+            First Name
           = f.text_field :name
           %label
-            Street Name
+            Last Name
+          = f.text_field :street_name
+          %label
+            Postcode
+          = f.text_field :street_name
+          %label
+            Date Of Birth
           = f.text_field :street_name
         %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
           %div
             = image_tag "search_white.png"
-        = link_to "More Search Options", "#", :style => "float: right; margin-top: 18px", :class => "more-search"
       .clear

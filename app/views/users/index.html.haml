@@ -1,0 +1,42 @@
+= content_for :title, "User Search"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet
+        .portlet-content.nopadding
+          %table
+            %thead
+              %tr
+                %th Login
+                %th Email
+                %th Role
+                %th Last Login
+                %th Status
+                %th # Policies
+                %th Date Added
+            %tbody
+              - for user in @users
+                %tr
+                  %td
+                    = link_to user.login, user_path(user)
+                  %td= Faker::Internet.email
+                  %td Agent
+                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %td Active
+                  %td
+                    = link_to user.policies.count, "#"
+                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+          .clear
+          #pagination-wrapper
+            = will_paginate @users, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
+            %span#pagination-counter
+              = page_entries_info(@users)
+            .clear
+:javascript
+  $(function() {
+    new App.Views.UserSearch({el: "#search-bar"});
+  })

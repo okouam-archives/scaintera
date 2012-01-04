@@ -4,6 +4,7 @@ gem 'rails'
 gem 'pg'
 gem 'acts_as_commentable'
 gem 'haml'
+gem  'faker'
 gem "will_paginate", :git => 'git@github.com:okouam/will_paginate.git'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 

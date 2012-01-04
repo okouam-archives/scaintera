@@ -18,15 +18,23 @@
         = form_for :s, :method => "get" do |f|
           .simple-search
             %label
-              Name
+              First Name
             = f.text_field :name
             %label
-              Street Name
+              Last Name
+            = f.text_field :street_name
+            %label
+              Postcode
+            = f.text_field :street_name
+            %label
+              Date of Birth
+            = f.text_field :street_name
+            %label
+              Relationship
             = f.text_field :street_name
           %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
             %div
               = image_tag "search_white.png"
-          = link_to "More Search Options", "#", :style => "float: right; margin-top: 18px", :class => "more-search"
         .clear
 
 .block
@@ -48,8 +56,20 @@
                 %tr
                   %td
                     = link_to beneficiary.policy.policy_number, policy_path(beneficiary.policy)
-                  %td= beneficiary.policy.policy_holder.first_name + " " + beneficiary.policy.policy_holder.last_name
-                  %td= beneficiary.first_name + " " + beneficiary.last_name
                   %td
-                  %td= beneficiary.relationship
+                    = link_to beneficiary.policy.policy_holder.first_name + " " + beneficiary.policy.policy_holder.last_name, policy_holder_path(beneficiary.policy.policy_holder)
                   %td
+                    = link_to beneficiary.first_name + " " + beneficiary.last_name, beneficiary_path(beneficiary)
+                  %td= Faker::Address.uk_postcode
+                  %td Sister
+                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+          .clear
+          #pagination-wrapper
+            = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
+            %span#pagination-counter
+              = page_entries_info(@policies)
+            .clear
+:javascript
+  $(function() {
+    new App.Views.BeneficiarySearch({el: "#search-bar"});
+  })

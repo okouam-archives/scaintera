@@ -6,92 +6,79 @@
 .block
   .block_content
     #portlets
-      .portlet
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
+          %h2
+            = "Policy ##{@policy.policy_number}"
+          %br
           %ul#tabs.tabs
             %li.active= link_to "Policy", "#policy"
             %li= link_to "Policy Holder", "#policy_holder"
             %li= link_to "Beneficiaries", "#beneficiaries"
             %li= link_to "Comments", "#comments"
-          %br
           #policy.tab
-            %div
-              %label Policy Number
-              = @policy.policy_number
-            %div
+            .entry
               %label Agent
               = @policy.user.login
-            %div
+            .entry
               %label Date Created
-              = @policy.user.login
-            %br
+              = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+            .entry
+              %label Status
+              Active
+            .entry
+              %label Type
+              General - Senior
+            .actions
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  Block Policy
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  New Beneficiary
           #policy_holder.tab
-            %div
-              %label Title
-              = @policy.user.login
-            %div
-              %label First Name
-              = @policy.user.login
-            %div
-              %label Middle Names
-              = @policy.user.login
-            %div
-              %label Last Name
-              = @policy.user.login
-            %div
-              %label Date of Birth
-              = @policy.user.login
-            %div
-              %label Address Line 1
-              = @policy.user.login
-            %div
-              %label Address Line 2
-              = @policy.user.login
-            %div
-              %label Postal Town
-              = @policy.user.login
-            %div
-              %label County
-              = @policy.user.login
-            %div
-              %label Postcode
-              = @policy.user.login
+            %div.details{style: "float: left; width: 400px"}
+              %div
+                %label Title
+                = @policy.user.login
+              %div
+                %label First Name
+                = @policy.user.login
+              %div
+                %label Middle Names
+                = @policy.user.login
+              %div
+                %label Last Name
+                = @policy.user.login
+              %div
+                %label Date of Birth
+                = @policy.user.login
+
+            %div.address{style: "float: left; width: 400px"}
+              %div
+                %label Address Line 1
+                = @policy.user.login
+              %div
+                %label Address Line 2
+                = @policy.user.login
+              %div
+                %label Postal Town
+                = @policy.user.login
+              %div
+                %label County
+                = @policy.user.login
+              %div
+                %label Postcode
+                = @policy.user.login
+            .clear
+            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
+              %div{style: "width: 95px"}
+                Edit Policy Holder
+            .clear
           #beneficiaries.tab
-            %div
-              %label Title
-              = @policy.user.login
-            %div
-              %label First Name
-              = @policy.user.login
-            %div
-              %label Middle Names
-              = @policy.user.login
-            %div
-              %label Last Name
-              = @policy.user.login
-            %div
-              %label Date of Birth
-              = @policy.user.login
-            %div
-              %label Address Line 1
-              = @policy.user.login
-            %div
-              %label Address Line 2
-              = @policy.user.login
-            %div
-              %label Postal Town
-              = @policy.user.login
-            %div
-              %label County
-              = @policy.user.login
-            %div
-              %label Postcode
-              = @policy.user.login
-            %div
-              %label Relationship to Policy Holder
-              = @policy.user.login
+            = render :partial => "policies/tabs/beneficiaries"
           #comments.tab
-            %textarea
+            = render :partial => "policies/tabs/comments"
 
 :javascript
   $(function() {
@@ -109,3 +96,7 @@
       return false;
     })
   })
+
+:css
+  .tab {border-left: 1px solid #ccc; padding: 15px}
+  .tab label {display: inline-block; width: 130px}
