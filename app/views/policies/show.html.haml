@@ -71,9 +71,10 @@
                 %label Postcode
                 = @policy.user.login
             .clear
-            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
-              %div{style: "width: 95px"}
-                Edit Policy Holder
+            = form_for @policy.policy_holder, method: "get" do
+              %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
+                %div{style: "width: 95px"}
+                  Edit Policy Holder
             .clear
           #beneficiaries.tab
             = render :partial => "policies/tabs/beneficiaries"
