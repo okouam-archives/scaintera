@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102221019) do
+ActiveRecord::Schema.define(:version => 20120102210750) do
 
   create_table "addresses", :force => true do |t|
     t.integer "addressable_id"
@@ -25,32 +25,38 @@ ActiveRecord::Schema.define(:version => 20120102221019) do
   end
 
   create_table "beneficiaries", :force => true do |t|
-    t.integer "policy_id",    :null => false
-    t.string  "relationship"
-    t.string  "first_name"
-    t.string  "middle_names"
-    t.string  "last_name"
-    t.string  "title"
-    t.string  "employer"
-    t.string  "dob"
+    t.integer  "policy_id",    :null => false
+    t.string   "relationship"
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "middle_names"
+    t.string   "last_name"
+    t.string   "employer"
+    t.string   "dob"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "policies", :force => true do |t|
-    t.string  "policy_number",    :null => false
-    t.string  "category",         :null => false
-    t.string  "status",           :null => false
-    t.integer "user_id",          :null => false
-    t.integer "policy_holder_id", :null => false
+    t.string   "policy_number",    :null => false
+    t.string   "category",         :null => false
+    t.string   "status",           :null => false
+    t.integer  "user_id",          :null => false
+    t.integer  "policy_holder_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "policy_holders", :force => true do |t|
-    t.integer "policy_id"
-    t.string  "first_name"
-    t.string  "middle_names"
-    t.string  "last_name"
-    t.string  "title"
-    t.string  "employer"
-    t.string  "dob"
+    t.string   "first_name"
+    t.string   "middle_names"
+    t.string   "last_name"
+    t.string   "title"
+    t.string   "employer"
+    t.integer  "user_id"
+    t.string   "dob"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|
@@ -71,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20120102221019) do
     t.string   "persistence_token", :null => false
     t.datetime "last_login_at"
     t.string   "last_login_ip"
+    t.string   "role"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

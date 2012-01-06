@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
         t.string :persistence_token, :null => false
         t.datetime :last_login_at
         t.string :last_login_ip
+        t.string :role
+        t.string :status
         t.timestamps
       end
   end

@@ -1,0 +1,102 @@
+= content_for :title, "Policy Beneficiaries"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %h2
+            = "Policy ##{@policy.policy_number}"
+          %br
+          %ul#tabs.tabs
+            %li.available= link_to "Policy", policy_path(@policy)
+            %li.available= link_to "Policy Holder", policy_holder_path(@policy)
+            %li.active= link_to "Beneficiaries", "#"
+            %li= link_to "Comments", policy_comments_path(@policy)
+          #beneficiaries.tab
+            %div.details{style: "float: left; width: 400px"}
+              .entry
+                %label Title
+                %select
+                  %option Mr
+              .entry
+                %label First Name
+                %input{type: "text", value: "John"}
+              .entry
+                %label Middle Names
+                %input{type: "text", value: "Ralph"}
+              .entry
+                %label Last Name
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Date of Birth
+                %input{type: "text", value: "1938-12-19"}
+            %div.address{style: "float: left; width: 400px"}
+              .entry
+                %label Address Line 1
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Address Line 2
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postal Town
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label County
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postcode
+                %input{type: "text", value: "Wardow"}
+            .clear
+            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
+              %div{style: "width: 125px"}
+                Remove beneficiary
+            .clear{style: "margin-bottom: 20px"}
+            %div.details{style: "float: left; width: 400px"}
+              .entry
+                %label Title
+                %select
+                  %option Mr
+              .entry
+                %label First Name
+                %input{type: "text", value: "John"}
+              .entry
+                %label Middle Names
+                %input{type: "text", value: "Ralph"}
+              .entry
+                %label Last Name
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Date of Birth
+                %input{type: "text", value: "1938-12-19"}
+            %div.address{style: "float: left; width: 400px"}
+              .entry
+                %label Address Line 1
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Address Line 2
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postal Town
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label County
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postcode
+                %input{type: "text", value: "Wardow"}
+            .clear
+            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
+              %div{style: "width: 125px"}
+                Remove beneficiary
+            .clear
+            .actions
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  Add beneficiary
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  Save changes

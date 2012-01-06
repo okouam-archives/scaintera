@@ -3,6 +3,16 @@
   border-bottom: 1px solid #ccc
   background-color: white
   background-color: #f1f1f1
+  .aoq-wrapper
+    display: inline-block
+    position: relative
+    left: -22px
+  h1
+    float: left
+    color: #434343
+    margin-left: 20px
+    width: 200px
+    margin-top: 4px
   .wrapper
     padding-top: 0
     .search
@@ -26,20 +36,45 @@
       cursor: pointer
     button#submit.nodropdown
       margin-left: 3px
-
-
-.paggination a, .paggination span.current, .paggination span.disabled
-  border: 1px solid #ccc
-  -webkit-border-radius: 3px
-  -moz-border-radius: 3px
-  border-radius: 3px
-  padding: 3px 6px
-  margin: 0 1px
-
-.paggination a.active, .paggination span.current
-  background: none
-  border: none
-  color: #434343
+  form.new
+    padding-top: 17px
+    display: inline
+    width: 150px
+  form.search
+    padding-top: 17px
+    width: 725px
+    display: inline
+  #advanced
+    width: 325px
+    border: 1px solid #ccc
+    position: absolute
+    top: 41px
+    left: 275px
+    background-color: white
+    z-index: 99999999999999
+    display: none
+    form
+      margin: 20px
+      input
+        border: 1px solid #ccc
+        width: 280px
+        padding: 2px
+      select
+        width: 381px
+    label
+      margin-top: 5px
+      display: block
+      margin-bottom: 3px
+    .close-button
+      background-image: url("//ssl.gstatic.com/ui/v1/icons/common/x_8px.png")
+      cursor: pointer
+      height: 21px
+      opacity: 0.4
+      padding: 2px
+      position: absolute
+      right: 0
+      top: 4px
+      width: 21px
 
 #pagination-wrapper
   font-size: 10px
@@ -55,16 +90,19 @@
       color: #fff
       background: #ec8526
       border: 1px solid #d77011
+    a, span.current, span.disabled
+      border: 1px solid #ccc
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+      border-radius: 3px
+      padding: 3px 6px
+      margin: 0 1px
+    a.active, span.current
+      background: none
+      border: none
+      color: #434343
   #pagination-counter
     display: inline-block
     padding-bottom: 11px
     margin-left: 5px
     float: left
-  a.section
-    top: -10px
-    width: 82px
-    margin-bottom: 8px
-    position: relative
-    float: right
-
-

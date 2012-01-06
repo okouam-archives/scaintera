@@ -13,12 +13,11 @@
               %tr
                 %th Policy #
                 %th Policy Holder
-                %th # People
+                %th # Beneficiaries
                 %th Type
                 %th Status
                 %th Agent
                 %th Date Added
-                %th
                 %th
             %tbody
               - for policy in @policies
@@ -28,7 +27,7 @@
                   %td
                     = link_to policy.policy_holder.first_name + " " + policy.policy_holder.last_name, policy_holder_path(policy.policy_holder)
                   %td
-                    = link_to policy.beneficiaries.count, "#"
+                    = link_to policy.beneficiaries.count, policy_beneficiaries_path(policy)
                   %td= policy.category
                   %td= policy.status
                   %td= policy.user.login
@@ -37,10 +36,6 @@
                     %button.gray-button
                       %div{style: "width: 95px"}
                         Block Policy
-                  %td
-                    %button.gray-button
-                      %div{style: "width: 95px"}
-                        New Beneficiary
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

@@ -1,0 +1,71 @@
+= content_for :title, "New Policy"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %br
+          %ul#tabs.tabs
+            %li.available.active= link_to "Policy", "#policy"
+            %li.available= link_to "Policy Holder", "#policyholder"
+            %li= link_to "Beneficiaries", "#beneficiaries"
+          #policy.tab
+            = render :partial => "policies/forms/policy"
+          #policyholder.tab
+            %div.details{style: "float: left; width: 400px"}
+              .entry
+                %label Title
+                %select
+                  %option Mr
+              .entry
+                %label First Name
+                %input{type: "text", value: "John"}
+              .entry
+                %label Middle Names
+                %input{type: "text", value: "Ralph"}
+              .entry
+                %label Last Name
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Date of Birth
+                %input{type: "text", value: "1938-12-19"}
+            %div.address{style: "float: left; width: 400px"}
+              .entry
+                %label Address Line 1
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Address Line 2
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postal Town
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label County
+                %input{type: "text", value: "Wardow"}
+              .entry
+                %label Postcode
+                %input{type: "text", value: "Wardow"}
+            .clear
+          #beneficiaries.tab
+            = render :partial => "policies/forms/beneficiaries"
+
+:javascript
+  $(function() {
+    $(".tab:first").show();
+    $("#tabs li").removeClass("active");
+    $("#tabs a:first").parents("li").addClass("active");
+    $(".tab:not(:first)").hide();
+
+    $("#tabs a").click(function() {
+      var ref = $(this).attr("href").split('#')[1];
+      $("#tabs li").removeClass("active");
+      $(this).parents("li").addClass("active");
+      $(".tab:not(#" + ref + ")").hide();
+      $("#" + ref).show();
+      return false;
+    })
+  })

@@ -9,7 +9,8 @@ class PolicyHoldersController < ApplicationController
   end
 
   def index
-    @policy_holders = PolicyHolder.paginate(per_page: per_page, page: page)
+    search = PolicyHolderSearch.new(params[:s])
+    @policy_holders = search.execute(page, per_page)
   end
 
   def new

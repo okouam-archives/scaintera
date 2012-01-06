@@ -1,0 +1,50 @@
+= content_for :title, "Policy Comments"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %h2
+            = "Policy ##{@policy.policy_number}"
+          %br
+          %ul#tabs.tabs
+            %li.available= link_to "Policy", policy_path(@policy)
+            %li.available= link_to "Policy Holder", policy_holder_path(@policy)
+            %li= link_to "Beneficiaries", policy_beneficiaries_path(@policy)
+            %li.active= link_to "Comments", policy_comments_path(@policy)
+          #comments.tab
+            %ul.comments
+              %li
+                .authorship
+                  = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %b
+                    = Faker::Internet.user_name
+                .comment
+                  = Faker::Lorem.sentence
+              %li
+                .authorship
+                  = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %b
+                    = Faker::Internet.user_name
+                .comment
+                  = Faker::Lorem.sentence
+              %li
+                .authorship
+                  = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %b
+                    = Faker::Internet.user_name
+                .comment
+                  = Faker::Lorem.sentence
+            %textarea
+            .actions
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  Add comment
+
+:css
+  #comments ul.comments li {margin-bottom: 5px}
+  #comments textarea {margin-top: 10px}

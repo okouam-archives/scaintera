@@ -1,0 +1,57 @@
+= content_for :title, "Policy Details"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %h2
+            = "Policy ##{@policy.policy_number}"
+          %br
+          %ul#tabs.tabs
+            %li.available= link_to "Policy", policy_path(@policy)
+            %li.available.active= link_to "Policy Holder", "#"
+            %li= link_to "Beneficiaries", policy_beneficiaries_path(@policy)
+            %li= link_to "Comments", policy_comments_path(@policy)
+          #policy_holder.tab
+            %div.details{style: "float: left; width: 400px"}
+              %div
+                %label Title
+                = @policy.user.login
+              %div
+                %label First Name
+                = @policy.user.login
+              %div
+                %label Middle Names
+                = @policy.user.login
+              %div
+                %label Last Name
+                = @policy.user.login
+              %div
+                %label Date of Birth
+                = @policy.user.login
+
+            %div.address{style: "float: left; width: 400px"}
+              %div
+                %label Address Line 1
+                = @policy.user.login
+              %div
+                %label Address Line 2
+                = @policy.user.login
+              %div
+                %label Postal Town
+                = @policy.user.login
+              %div
+                %label County
+                = @policy.user.login
+              %div
+                %label Postcode
+                = @policy.user.login
+            .clear
+            .actions
+              %button.blue-button
+                %div{style: "width: 150px"}
+                  Edit policy holder

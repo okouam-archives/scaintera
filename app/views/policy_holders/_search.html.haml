@@ -10,10 +10,6 @@
       %button.search-button
         %div
           = image_tag "search_white.png"
-    %form.new-location{:method=>"get", :action => "/locations/new"}
-      %button.red-button
-        %div
-          New policy holder
     #advanced
       %a.close-button
       = form_for :s, :method => "get" do |f|

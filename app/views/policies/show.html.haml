@@ -12,92 +12,26 @@
             = "Policy ##{@policy.policy_number}"
           %br
           %ul#tabs.tabs
-            %li.active= link_to "Policy", "#policy"
-            %li= link_to "Policy Holder", "#policy_holder"
-            %li= link_to "Beneficiaries", "#beneficiaries"
-            %li= link_to "Comments", "#comments"
+            %li.available.active= link_to "Policy", "#policy"
+            %li.available= link_to "Policy Holder", policy_holder_path(@policy)
+            %li= link_to "Beneficiaries", policy_beneficiaries_path(@policy)
+            %li= link_to "Comments", policy_comments_path(@policy)
           #policy.tab
-            .entry
-              %label Agent
-              = @policy.user.login
-            .entry
-              %label Date Created
-              = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
-            .entry
-              %label Status
-              Active
-            .entry
-              %label Type
-              General - Senior
-            .actions
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  Block Policy
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  New Beneficiary
-          #policy_holder.tab
-            %div.details{style: "float: left; width: 400px"}
-              %div
-                %label Title
+            = form_for @policy do |f|
+              .entry
+                %label Agent
                 = @policy.user.login
-              %div
-                %label First Name
-                = @policy.user.login
-              %div
-                %label Middle Names
-                = @policy.user.login
-              %div
-                %label Last Name
-                = @policy.user.login
-              %div
-                %label Date of Birth
-                = @policy.user.login
+              .entry
+                %label Date Created
+                = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+              .entry
+                %label Status
+                = f.select(:status, ["Active", "Blocked"])
+              .entry
+                %label Type
+                = f.select(:status, ["General - Senior", "Premium - Senior", "General - Adult", "Premium - Adult"])
+              .actions
+                %button.blue-button
+                  %div{style: "width: 150px"}
+                    Save changes
 
-            %div.address{style: "float: left; width: 400px"}
-              %div
-                %label Address Line 1
-                = @policy.user.login
-              %div
-                %label Address Line 2
-                = @policy.user.login
-              %div
-                %label Postal Town
-                = @policy.user.login
-              %div
-                %label County
-                = @policy.user.login
-              %div
-                %label Postcode
-                = @policy.user.login
-            .clear
-            = form_for @policy.policy_holder, method: "get" do
-              %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
-                %div{style: "width: 95px"}
-                  Edit Policy Holder
-            .clear
-          #beneficiaries.tab
-            = render :partial => "policies/tabs/beneficiaries"
-          #comments.tab
-            = render :partial => "policies/tabs/comments"
-
-:javascript
-  $(function() {
-    $(".tab:first").show();
-    $("#tabs li").removeClass("active");
-    $("#tabs a:first").parents("li").addClass("active");
-    $(".tab:not(:first)").hide();
-
-    $("#tabs a").click(function() {
-      var ref = $(this).attr("href").split('#')[1];
-      $("#tabs li").removeClass("active");
-      $(this).parents("li").addClass("active");
-      $(".tab:not(#" + ref + ")").hide();
-      $("#" + ref).show();
-      return false;
-    })
-  })
-
-:css
-  .tab {border-left: 1px solid #ccc; padding: 15px}
-  .tab label {display: inline-block; width: 130px}

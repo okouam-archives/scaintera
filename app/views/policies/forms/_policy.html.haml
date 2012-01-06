@@ -1,0 +1,24 @@
+= form_for @policy do |f|
+  - if @policy.persisted?
+    .entry
+      %label Agent
+      = @policy.user.login
+  - if @policy.persisted?
+    .entry
+      %label Date Created
+      = @policy.created_at.strftime("%Y-%m-%d")
+  .entry
+    %label Status
+    = f.select(:status, ["Active", "Blocked"])
+  .entry
+    %label Type
+    = f.select(:status, ["General - Senior", "Premium - Senior", "General - Adult", "Premium - Adult"])
+  .actions
+    - if @policy.persisted?
+      %button.blue-button
+        %div{style: "width: 150px"}
+          Save changes
+    - else
+      %button.red-button{style: "top: 0"}
+        %div
+          Create Policy
