@@ -14,6 +14,8 @@ class PoliciesController < ApplicationController
 
   def new
     @policy = Policy.new({user: current_user})
+    policy_holder = @policy.build_policy_holder
+    policy_holder.build_address
   end
 
   def show
@@ -37,7 +39,13 @@ class PoliciesController < ApplicationController
   end
 
   def create
-
+    policy = Policy.new(params[:policy])
+    if policy.save
+      redirect_to policy_path(policy.id)
+    else
+      @policy = policy
+      render :new
+    end
   end
 
 end

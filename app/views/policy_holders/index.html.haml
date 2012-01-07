@@ -26,8 +26,8 @@
                     = policy_holder.id
                   %td
                     = link_to policy_holder.first_name + " " + policy_holder.last_name, edit_policy_holder_path(policy_holder)
-                  %td= Faker::Address.uk_postcode
-                  %td= Faker::Address.city
+                  %td= policy_holder.address ? policy_holder.address.postcode : ""
+                  %td= policy_holder.address ? policy_holder.address.postal_town : ""
                   %td
                     = link_to policy_holder.beneficiaries.count, beneficiaries_path
                   %td

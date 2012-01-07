@@ -16,16 +16,16 @@
         .simple-search
           %label
             First Name
-          = f.text_field :name
+          = f.text_field :first_name
           %label
             Last Name
-          = f.text_field :street_name
+          = f.text_field :last_name
           %label
             Postcode
-          = f.text_field :street_name
+          = f.text_field :postcode
           %label
             Date Of Birth
-          = f.text_field :street_name
+          = f.text_field :dob
         %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
           %div
             = image_tag "search_white.png"

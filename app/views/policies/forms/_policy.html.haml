@@ -1,24 +1,30 @@
-= form_for @policy do |f|
-  - if @policy.persisted?
-    .entry
-      %label Agent
-      = @policy.user.login
-  - if @policy.persisted?
-    .entry
-      %label Date Created
-      = @policy.created_at.strftime("%Y-%m-%d")
+= f.hidden_field :user_id
+- if @policy.persisted?
   .entry
-    %label Status
-    = f.select(:status, ["Active", "Blocked"])
+    %label Agent
+    = @policy.user.login
   .entry
-    %label Type
-    = f.select(:status, ["General - Senior", "Premium - Senior", "General - Adult", "Premium - Adult"])
-  .actions
-    - if @policy.persisted?
-      %button.blue-button
-        %div{style: "width: 150px"}
-          Save changes
-    - else
-      %button.red-button{style: "top: 0"}
-        %div
-          Create Policy
+    %label Date Created
+    = @policy.created_at.strftime("%Y-%m-%d")
+- else
+  .entry
+    %label Policy Number
+    = f.text_field :policy_number
+.entry
+  %label Status
+  = f.select(:status, ["Active", "Blocked"])
+.entry
+  %label Type
+  = f.select(:category, ["General - Senior", "Premium - Senior", "General - Adult", "Premium - Adult"])
+- unless @policy.errors.empty?
+  .errors
+    The policy could not be created as there were errors in the forms.
+.actions
+  - if @policy.persisted?
+    %button.blue-button
+      %div{style: "width: 150px"}
+        Save changes
+  - else
+    %button.red-button{style: "top: 0"}
+      %div
+        Create Policy
