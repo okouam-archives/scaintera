@@ -9,7 +9,7 @@
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
           %h2
-            = "Policy ##{@policy.policy_number}"
+            = "Policy ##{@policy.id}"
           %br
           %ul#tabs.tabs
             %li.available= link_to "Policy", policy_path(@policy)
@@ -18,40 +18,67 @@
             %li= link_to "Comments", policy_comments_path(@policy)
           #policy_holder.tab
             %div.details{style: "float: left; width: 400px"}
-              %div
-                %label Title
-                = @policy.user.login
-              %div
-                %label First Name
-                = @policy.user.login
-              %div
-                %label Middle Names
-                = @policy.user.login
-              %div
-                %label Last Name
-                = @policy.user.login
-              %div
+              .entry
+                %label Names
+                = @policy.policy_holder.names
+              .entry
+                %label Surname
+                = @policy.policy_holder.surname
+              .entry
                 %label Date of Birth
-                = @policy.user.login
+                = @policy.policy_holder.dob
+              .entry
+                %label Nationality
+                = @policy.policy_holder.nationality
+              .entry
+                %label Gender
+                = @policy.policy_holder.gender
+              .entry
+                %label Rents property
+                = @policy.policy_holder.rents_property ? "Yes" : "No"
+              .entry
+                %label Owns property
+                = @policy.policy_holder.owns_property ? "Yes" : "No"
+              .entry
+                %label Does money transfers
+                = @policy.policy_holder.uses_money_transfers ? "Yes" : "No"
 
             %div.address{style: "float: left; width: 400px"}
-              %div
-                %label Address Line 1
-                = @policy.user.login
-              %div
-                %label Address Line 2
-                = @policy.user.login
-              %div
-                %label Postal Town
-                = @policy.user.login
-              %div
-                %label County
-                = @policy.user.login
-              %div
+              .entry
+                %label Address
+                = @policy.policy_holder.address
+              .entry
+                %label City
+                = @policy.policy_holder.city
+              .entry
                 %label Postcode
-                = @policy.user.login
+                = @policy.policy_holder.postcode
+              .entry
+                %label Home Phone
+                = @policy.policy_holder.home_phone
+              .entry
+                %label Mobile Phone
+                = @policy.policy_holder.mobile_phone
+              .entry
+                %label Email
+                = @policy.policy_holder.email
             .clear
-            .actions
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  Edit policy holder
+            %br
+            - unless @policy.policy_holder.insurance_products.empty?
+              %h3
+                Other Insurance Products
+              %table{style: "border: 1px solid #ccc; margin-top: 10px"}
+                %thead
+                  %th Cover
+                  %th Premium Amount
+                  %th Expiry Date
+                %tbody
+                - for insurance_product in @policy.policy_holder.insurance_products
+                  %tr
+                    %td= insurance_product.cover
+                    %td= insurance_product.premium_amount
+                    %td= insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : ""
+            .toolbar{:style=>"margin-bottom: 10px"}
+              = form_for :policy_holder, :method => :get, :url => "/policy_holders/#{@policy.policy_holder.id}/edit" do
+                %button.gray-button
+                  %div{style: "width: 130px"} Edit Policy Holder

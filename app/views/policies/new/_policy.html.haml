@@ -1,0 +1,16 @@
+= f.hidden_field :user_id
+.entry
+  %label Category
+  = f.enum_select :category
+- unless @policy.errors.empty?
+  .errors
+    = @policy.errors.full_messages
+.actions
+  - if @policy.persisted?
+    %button.blue-button
+      %div{style: "width: 150px"}
+        Save changes
+  - else
+    %button.red-button{style: "top: 0"}
+      %div
+        Create Policy

@@ -20,25 +20,25 @@
         .simple-search
           %label
             Policy Number
-          = f.text_field :number
+          = f.text_field :policy_number
           %label
-            Policy Holder
-          = f.text_field :policy_holder
+            Policy Holder Surname
+          = f.text_field :policy_holder_surname
           %label
             Agent
-          = f.text_field :user
+          = f.text_field :agent
           %label
             Type
-          = f.text_field :user
+          = select_tag "category", options_for_select([""] + Policy.new.enums(:category).select_options), :name => "s[category]"
           %label
             Status
-          = f.text_field :user
+          = select_tag "s_status", options_for_select([""] + Policy.new.enums(:status).select_options), :name => "s[status]"
           %label
             Added After
-          = f.text_field :user
+          = f.text_field :added_after
           %label
             Added Before
-          = f.text_field :user
+          = f.text_field :added_before
         %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
           %div
             = image_tag "search_white.png"

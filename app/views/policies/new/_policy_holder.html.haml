@@ -1,0 +1,47 @@
+= f.fields_for :policy_holder do |ff|
+  %div.details{style: "float: left; width: 400px"}
+    .entry
+      %label Names
+      = ff.text_field :names
+    .entry
+      %label Surname
+      = ff.text_field :surname
+    .entry
+      %label Date of Birth
+      = ff.text_field :dob
+    .entry
+      %label Nationality
+      = ff.text_field :nationality
+    .entry
+      %label Gender
+      = ff.enum_select :gender
+    .entry
+      %label Rents property
+      = ff.check_box :rents_property
+    .entry
+      %label Owns property
+      = ff.check_box :owns_property
+    .entry
+      %label Does money transfers
+      = ff.check_box :uses_money_transfers
+  %div.address{style: "float: left; width: 400px; margin-left: 40px"}
+    .entry
+      %label Address
+      = ff.text_field :address
+    .entry
+      %label City
+      = ff.text_field :city
+    .entry
+      %label Postcode
+      = ff.text_field :postcode
+    .entry
+      %label Home Phone
+      = ff.text_field :home_phone
+    .entry
+      %label Mobile Phone
+      = ff.text_field :mobile_phone
+    .entry
+      %label Email
+      = ff.text_field :email
+    .clear
+  .clear

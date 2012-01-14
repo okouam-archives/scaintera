@@ -1,7 +1,7 @@
 class PoliciesController < ApplicationController
 
   def per_page
-    @per_page = params[:per_page] || 5
+    @per_page = params[:per_page] || 15
   end
 
   def page
@@ -9,13 +9,13 @@ class PoliciesController < ApplicationController
   end
 
   def index
-    @policies = Policy.paginate(per_page: per_page, page: page)
+    search = PolicySearch.new(params[:s])
+    @policies = search.execute(page, per_page)
   end
 
   def new
     @policy = Policy.new({user: current_user})
-    policy_holder = @policy.build_policy_holder
-    policy_holder.build_address
+    @policy.build_policy_holder
   end
 
   def show
@@ -24,6 +24,7 @@ class PoliciesController < ApplicationController
 
   def comments
     @policy = Policy.find(params[:id])
+    @comment = @policy.comments.build
   end
 
   def beneficiaries
@@ -35,7 +36,20 @@ class PoliciesController < ApplicationController
   end
 
   def update
-
+    policy = Policy.find(params[:id])
+    if policy.update_attributes(params[:policy])
+      flash[:message] = "The policy has been successfully updated."
+      flash[:message_type] = "success"
+    else
+      flash[:message] = "Failure."
+      flash[:message_type] = "failure"
+    end
+    if params[:page] == "beneficiaries"
+      policy.beneficiaries.build
+      redirect_to policy_beneficiaries_path(params[:id])
+    else
+      redirect_to policy_path(params[:id])
+    end
   end
 
   def create

@@ -1,7 +1,7 @@
 class BeneficiariesController < ApplicationController
 
   def per_page
-    @per_page = params[:per_page] || 5
+    @per_page = params[:per_page] || 15
   end
 
   def page
@@ -9,7 +9,8 @@ class BeneficiariesController < ApplicationController
   end
 
   def index
-    @beneficiaries = Beneficiary.paginate(per_page: per_page, page: page)
+    search = BeneficiarySearch.new(params[:s])
+    @beneficiaries = search.execute(page, per_page)
   end
 
   def new

@@ -11,32 +11,24 @@
           %table
             %thead
               %tr
-                %th Policy #
+                %th #
                 %th Policy Holder
-                %th # Beneficiaries
                 %th Type
                 %th Status
                 %th Agent
                 %th Date Added
-                %th
             %tbody
               - for policy in @policies
                 %tr
                   %td
-                    = link_to policy.policy_number, policy_path(policy)
+                    = link_to policy.id, policy_path(policy)
                   %td
-                    = link_to policy.policy_holder.first_name + " " + policy.policy_holder.last_name, policy_holder_path(policy.policy_holder)
-                  %td
-                    = link_to policy.beneficiaries.count, policy_beneficiaries_path(policy)
-                  %td= policy.category
-                  %td= policy.status
+                    = link_to policy.policy_holder.names + " " + policy.policy_holder.surname, policy_holder_path(policy)
+                  %td= policy.enums(:category).label(policy.category)
+                  %td= policy.enums(:status).label(policy.status)
                   %td= policy.user.login
                   %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
-                  %td
-                    %button.gray-button
-                      %div{style: "width: 95px"}
-                        Block Policy
-          .clear
+            .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
             %span#pagination-counter

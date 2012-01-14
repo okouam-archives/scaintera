@@ -18,20 +18,17 @@
         = form_for :s, :method => "get" do |f|
           .simple-search
             %label
-              First Name
-            = f.text_field :name
+              Names
+            = f.text_field :names
             %label
-              Last Name
-            = f.text_field :street_name
+              Surname
+            = f.text_field :surname
             %label
-              Postcode
-            = f.text_field :street_name
+              Telephone
+            = f.text_field :telephone
             %label
               Date of Birth
-            = f.text_field :street_name
-            %label
-              Relationship
-            = f.text_field :street_name
+            = f.text_field :dob
           %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
             %div
               = image_tag "search_white.png"
@@ -47,22 +44,24 @@
               %tr
                 %th Policy Number
                 %th Policy Holder
-                %th Name
-                %th Post Code
+                %th Full Name
+                %th Date of Birth
+                %th Telephone
                 %th Relationship
                 %th Date Added
             %tbody
               - for beneficiary in @beneficiaries
                 %tr
                   %td
-                    = link_to beneficiary.policy.policy_number, policy_path(beneficiary.policy)
+                    = link_to beneficiary.policy.id, policy_path(beneficiary.policy)
                   %td
-                    = link_to beneficiary.policy.policy_holder.first_name + " " + beneficiary.policy.policy_holder.last_name, policy_holder_path(beneficiary.policy.policy_holder)
+                    = link_to beneficiary.policy.policy_holder.names + " " + beneficiary.policy.policy_holder.surname, policy_holder_path(beneficiary.policy.policy_holder)
                   %td
-                    = link_to beneficiary.first_name + " " + beneficiary.last_name, beneficiary_path(beneficiary)
-                  %td= Faker::Address.uk_postcode
-                  %td Sister
-                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                    = link_to beneficiary.names + " " + beneficiary.surname, policy_path(beneficiary.policy) + "/beneficiaries"
+                  %td= beneficiary.dob.strftime("%Y-%m-%d")
+                  %td= beneficiary.telephone
+                  %td= beneficiary.relationship
+                  %td= beneficiary.created_at.strftime("%Y-%m-%d")
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

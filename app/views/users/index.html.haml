@@ -22,14 +22,13 @@
               - for user in @users
                 %tr
                   %td
-                    = link_to user.login, user_path(user)
-                  %td= Faker::Internet.email
-                  %td Agent
-                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
-                  %td Active
-                  %td
-                    = link_to user.policies.count, "#"
-                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                    = link_to user.login, edit_user_path(user)
+                  %td= user.email
+                  %td= user.enums(:role).label(user.role)
+                  %td= user.last_login_at ? user.last_login_at.strftime("%Y-%m-%d") : ""
+                  %td= user.enums(:status).label(user.status)
+                  %td= user.policies.count
+                  %td= user.created_at.strftime("%Y-%m-%d")
           .clear
           #pagination-wrapper
             = will_paginate @users, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

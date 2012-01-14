@@ -1,71 +1,88 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+load "#{Rails.root}/db/faker_extensions.rb"
 
 Policy.delete_all
 PolicyHolder.delete_all
 Beneficiary.delete_all
 User.delete_all
 
+def find_user
+  users = User.all
+  users[Random.rand(users.count)]
+end
+
+def find_policy_holder
+  policy_holders = PolicyHolder.all
+  policy_holders[Random.rand(policy_holders.count)]
+end
+
+def find_policy
+  policies = Policy.all
+  policies[Random.rand(policies.count)]
+end
+
 User.create!([
-  { login: "okouam", password: "changeme", email: "olivier.kouame@gmail.com", password_confirmation: "changeme",
-    role: "Administator", status: "Active"},
-  { login: "paul", password: "changeme", email: "paul@gmail.com", password_confirmation: "changeme", role: "Administrator",
-    status: "Active"},
-  { login: "brice", password: "changeme", email: "brice@gmail.com", password_confirmation: "changeme", role: "Administrator",
-    status: "Active"},
-  { login: "johnny", password: "changeme", email: "johnny@gmail.com", password_confirmation: "changeme", role: "Agent",
-    status: "Active"},
-  { login: "ricardo", password: "changeme", email: "ricardo@gmail.com", password_confirmation: "changeme", role: "Agent",
-    status: "Blocked"},
-  { login: "fifi", password: "changeme", email: "fifi@gmail.com", password_confirmation: "changeme", role: "Employee",
-    status: "Active"},
-  { login: "suzanne", password: "changeme", email: "suzanne@gmail.com", password_confirmation: "changeme", role: "Employee",
-    status: "Blocked"}
+  { login: "okouam", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme",
+    role: "administrator", status: "active"},
+  { login: "paul", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "administrator",
+    status: "active"},
+  { login: "brice", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "administrator",
+    status: "active"},
+  { login: "johnny", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "agent",
+    status: "active"},
+  { login: "ricardo", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "agent",
+    status: :blocked},
+  { login: "fifi", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "auditor",
+    status: "active"},
+  { login: "suzanne", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "auditor",
+    status: :blocked}
 ])
 
-PolicyHolder.create!([
-  { first_name: "Olivier", middle_names: "Zegbeh N'Guessan", last_name: "Kouame", title: "Mr", dob: "1981-04-13",
-    employer: "Videojug Ltd", user: User.find_by_login("paul"), address: Address.new({
-      address_line_1: "23 Stroud Purple Road", address_line_2: "Finsbury Park", postcode: "N3 2PS", postal_town: "London",
-      country: "United Kingdom", county: "London"
-  })},
-  { first_name: "Cindy", middle_names: "Rudolph Patrick", last_name: "Smith", title: "Miss", dob: "1924-11-20",
-    employer: "Homebase Ltd", user: User.find_by_login("brice"), address: Address.new({
-  })},
-  { first_name: "Obama", middle_names: "Tony", last_name: "Clinton", title: "Mr", dob: "1934-07-23",
-    employer: "United States Senate", user: User.find_by_login("brice"), address: Address.new({
-  })},
-  { first_name: "Jeffrey", middle_names: "", last_name: "Hearst", title: "Dr", dob: "1988-02-11",
-    employer: "BT", user: User.find_by_login("paul"), address: Address.new({
-  })},
-  { first_name: "Lucy", middle_names: "Miranda Helen", last_name: "Bonham-Carter", title: "Mrs", dob: "1948-12-01",
-    employer: "Miramax Films", user: User.find_by_login("johnny"), address: Address.new({
-  })}
-])
+1..20.times do
+  PolicyHolder.create!(
+    { names: Faker::Name.first_name,
+      surname: Faker::Name.last_name,
+      dob: Faker::Person.dob,
+      gender: Faker::Person.gender,
+      email: Faker::Internet.email,
+      postcode: Faker::Address.postcode,
+      city: Faker::Address.city,
+      user: find_user,
+      address: Faker::Address.street_address,
+      mobile_phone: Faker::PhoneNumber.cell_phone,
+      home_phone: Faker::PhoneNumber.phone_number,
+      rents_property: Faker::Logic.boolean,
+      owns_property: Faker::Logic.boolean,
+      uses_money_transfers: Faker::Logic.boolean
+    }
+  )
+end
 
-Policy.create!([
-  { user: User.find_by_login("brice"), policy_number: "AB234", status: "ACTIVE", category: "General - Regular",
-    policy_holder: PolicyHolder.find_by_last_name("Kouame") },
-  { user: User.find_by_login("brice"), policy_number: "DS3943", status: "INACTIVE", category: "General - Regular",
-    policy_holder: PolicyHolder.find_by_last_name("Kouame") },
-  { user: User.find_by_login("brice"), policy_number: "BFG33434", status: "ACTIVE", category: "Senior - Premium",
-    policy_holder: PolicyHolder.find_by_last_name("Kouame") },
-  { user: User.find_by_login("paul"), policy_number: "DS3434", status: "ACTIVE", category: "General - Premium",
-    policy_holder: PolicyHolder.find_by_last_name("Smith") },
-  { user: User.find_by_login("paul"), policy_number: "BG4345", status: "INACTIVE", category: "Senior - Premium",
-    policy_holder: PolicyHolder.find_by_last_name("Clinton") },
-  { user: User.find_by_login("johnny"), policy_number: "HJ3253", status: "ACTIVE", category: "Senior - Regular",
-    policy_holder: PolicyHolder.find_by_last_name("Hearst") },
-  { user: User.find_by_login("johnny"), policy_number: "KJ3253", status: "ACTIVE", category: "Senior - Regular",
-    policy_holder: PolicyHolder.find_by_last_name("Bonham-Carter") },
-])
+1..30.times do
+  Policy.create!({
+    user: find_user,
+    status: Faker::Policy.status,
+    category: Faker::Policy.category,
+    policy_holder: find_policy_holder
+  })
+end
 
-Beneficiary.create!([
-  { policy: Policy.find_by_policy_number("AB234"), first_name: "Karen", last_name: "Fisher", dob: "1928-04-12",
-    relationship: "daughter"}
-])
+1..60.times do
+  Beneficiary.create!({
+    policy: find_policy,
+    names: Faker::Name.first_name,
+    telephone: Faker::PhoneNumber.phone_number,
+    surname: Faker::Name.last_name,
+    dob: Faker::Person.dob,
+    relationship: Faker::Person.relationship
+  })
+end
+
+1..40.times do
+  InsuranceProduct.create!({
+    policy_holder: find_policy_holder,
+    cover: Faker::InsuranceProduct.cover,
+    expiry_date: Faker::Name.last_name,
+    premium_amount: Random.rand(100) + 10
+  })
+end
+

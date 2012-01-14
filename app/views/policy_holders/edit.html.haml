@@ -8,55 +8,123 @@
     #portlets
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
+          %h2
+            = @policy_holder.names + " " + @policy_holder.surname
+          %br
           %ul#tabs.tabs
             %li.active= link_to "Details", "#details"
+            %li= link_to "Other Insurance Products", "#other_insurance_products"
             %li= link_to "Policies", "#policies"
             %li= link_to "Comments", "#comments"
           #details.tab
-            %div.details{style: "float: left; width: 400px"}
-              .entry
-                %label Title
-                %select
-                  %option Mr
-              .entry
-                %label First Name
-                %input{type: "text", value: "John"}
-              .entry
-                %label Middle Names
-                %input{type: "text", value: "Ralph"}
-              .entry
-                %label Last Name
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Date of Birth
-                %input{type: "text", value: "1938-12-19"}
-            %div.address{style: "float: left; width: 400px"}
-              .entry
-                %label Address Line 1
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Address Line 2
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postal Town
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label County
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postcode
-                %input{type: "text", value: "Wardow"}
-            .clear
-            .actions
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  Save changes
+            = form_for @policy_holder,:url => "/policy_holders/#{@policy_holder.id}", :method => :put do |f|
+              %div.details{style: "float: left; width: 400px"}
+                .entry
+                  %label Names
+                  = f.text_field :names
+                .entry
+                  %label Surname
+                  = f.text_field :surname
+                .entry
+                  %label Date of Birth
+                  = f.text_field :dob
+                .entry
+                  %label Nationality
+                  = f.text_field :nationality
+                .entry
+                  %label Gender
+                  = f.enum_select :gender
+                .entry
+                  %label Rents property
+                  = f.check_box :rents_property
+                .entry
+                  %label Owns property
+                  = f.check_box :owns_property
+                .entry
+                  %label Does money transfers
+                  = f.check_box :uses_money_transfers
+              %div.address{style: "float: left; width: 400px; margin-left: 40px"}
+                .entry
+                  %label Address
+                  = f.text_field :address
+                .entry
+                  %label City
+                  = f.text_field :city
+                .entry
+                  %label Postcode
+                  = f.text_field :postcode
+                .entry
+                  %label Home Phone
+                  = f.text_field :home_phone
+                .entry
+                  %label Mobile Phone
+                  = f.text_field :mobile_phone
+                .entry
+                  %label Email
+                  = f.text_field :email
+              .clear
+              .message.success
+                = flash[:message]
+              .actions
+                %button.blue-button
+                  %div{style: "width: 150px"}
+                    Save changes
           #policies.tab
+            %table
+              %thead
+                %th
+                  Policy
+                %th
+                  Agent
+                %th
+                  Date Created
+                %th
+                  Status
+                %th
+                  Type
+                %th
+                  Beneficiaries
+              %tbody
+                - for policy in @policy_holder.policies do
+                  %tr
+                    %td= link_to "Policy ##{policy.id}", policy_path(policy)
+                    %td= policy.user.login
+                    %td= policy.created_at.strftime("%Y-%m-%d")
+                    %td= policy.enums(:status).label(policy.status)
+                    %td= policy.enums(:category).label(policy.category)
+                    %td= policy.beneficiaries.map {|beneficiary| beneficiary.full_name}.join(", ")
+          #other_insurance_products.tab
+            %table
+              %thead
+                %th
+                %th
+                %th Cover
+                %th Premium Amount
+                %th Expiry Date
+              %tbody
+                - for insurance_product in @policy_holder.insurance_products
+                  %tr{:"data-id" => insurance_product.id}
+                    %td{style: "padding: 2px; width: 40px"}
+                      %a{class: 'remove', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                    %td{style: "padding: 2px; width: 40px"}
+                      %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -18px -41px transparent', href: '#'}
+                    %td
+                      = insurance_product.cover
+                    %td
+                      = insurance_product.premium_amount
+                    %td
+                      = insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : ""
+            .toolbar{:style=>"margin-bottom: 10px"}
+              %button.gray-button
+                %div{style: "width: 130px"} Add Insurance Product
           #comments.tab
             %textarea
 
 :javascript
   $(function() {
+
+    new App.Views.InsuranceProductEditor({el: "#other_insurance_products"});
+
     $(".tab:first").show();
     $("#tabs li").removeClass("active");
     $("#tabs a:first").parents("li").addClass("active");

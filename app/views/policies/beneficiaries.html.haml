@@ -9,7 +9,7 @@
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
           %h2
-            = "Policy ##{@policy.policy_number}"
+            = "Policy ##{@policy.id}"
           %br
           %ul#tabs.tabs
             %li.available= link_to "Policy", policy_path(@policy)
@@ -17,86 +17,36 @@
             %li.active= link_to "Beneficiaries", "#"
             %li= link_to "Comments", policy_comments_path(@policy)
           #beneficiaries.tab
-            %div.details{style: "float: left; width: 400px"}
-              .entry
-                %label Title
-                %select
-                  %option Mr
-              .entry
-                %label First Name
-                %input{type: "text", value: "John"}
-              .entry
-                %label Middle Names
-                %input{type: "text", value: "Ralph"}
-              .entry
-                %label Last Name
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Date of Birth
-                %input{type: "text", value: "1938-12-19"}
-            %div.address{style: "float: left; width: 400px"}
-              .entry
-                %label Address Line 1
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Address Line 2
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postal Town
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label County
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postcode
-                %input{type: "text", value: "Wardow"}
-            .clear
-            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
-              %div{style: "width: 125px"}
-                Remove beneficiary
-            .clear{style: "margin-bottom: 20px"}
-            %div.details{style: "float: left; width: 400px"}
-              .entry
-                %label Title
-                %select
-                  %option Mr
-              .entry
-                %label First Name
-                %input{type: "text", value: "John"}
-              .entry
-                %label Middle Names
-                %input{type: "text", value: "Ralph"}
-              .entry
-                %label Last Name
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Date of Birth
-                %input{type: "text", value: "1938-12-19"}
-            %div.address{style: "float: left; width: 400px"}
-              .entry
-                %label Address Line 1
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Address Line 2
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postal Town
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label County
-                %input{type: "text", value: "Wardow"}
-              .entry
-                %label Postcode
-                %input{type: "text", value: "Wardow"}
-            .clear
-            %button.gray-button{style: "margin-left: -5px; margin-top: 10px"}
-              %div{style: "width: 125px"}
-                Remove beneficiary
-            .clear
-            .actions
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  Add beneficiary
-              %button.blue-button
-                %div{style: "width: 150px"}
-                  Save changes
+            %table
+              %thead
+                %th
+                %th
+                %th Names
+                %th Surname
+                %th Relationship
+                %th Telephone
+                %th Date of Birth
+              %tbody
+                - for beneficiary in @policy.beneficiaries
+                  %tr
+                    %td{style: "padding: 2px"}
+                      %a{class: 'remove', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                    %td{style: "padding: 2px"}
+                      %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -18px -41px transparent', href: '#'}
+                    %td
+                      = beneficiary.names
+                    %td
+                      = beneficiary.surname
+                    %td
+                      = beneficiary.relationship
+                    %td
+                      = beneficiary.telephone
+                    %td
+                      = beneficiary.dob.strftime("%Y-%m-%d")
+            .toolbar{:style=>"margin-bottom: 10px"}
+              %button.gray-button
+                %div{style: "width: 130px"} Add Beneficiary
+:javascript
+  $(function() {
+
+  });

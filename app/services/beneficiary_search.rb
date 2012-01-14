@@ -1,4 +1,4 @@
-class PolicyHolderSearch
+class BeneficiarySearch
 
   def initialize(attributes)
     if attributes
@@ -9,12 +9,12 @@ class PolicyHolderSearch
   end
 
   def execute(page, per_page)
-    query = PolicyHolder.scoped
+    query = Beneficiary.scoped
     query = query.where("names ilike ? OR surname ilike ?", "%#{@name}%", "%#{@name}%") if @name.present?
     query = query.where("names ilike ?", "%#{@names}%") if @names.present?
     query = query.where("surname ilike ?", "%#{@surname}%") if @surname.present?
-    query = query.where("postcode ilike ?", "%#{@postcode}%") if @postcode.present?
-    query = query.where("dob = ?", "%#{@dob}%") if @dob.present?
+    query = query.where("telephone ilike ?", "%#{@telephone}%") if @telephone.present?
+    query = query.where("dob = ?", "#{@dob}") if @dob.present?
     query.paginate(per_page: per_page, page: page)
   end
 

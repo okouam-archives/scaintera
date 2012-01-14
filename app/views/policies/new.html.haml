@@ -12,48 +12,11 @@
           %ul#tabs.tabs
             %li.available.active= link_to "Policy", "#policy"
             %li.available= link_to "Policy Holder", "#policyholder"
-            %li= link_to "Beneficiaries", "#beneficiaries"
           = form_for @policy do |f|
             #policy.tab
-              = render :partial => "policies/forms/policy", locals: {f: f}
+              = render :partial => "policies/new/policy", locals: {f: f}
             #policyholder.tab
-              = f.fields_for :policy_holder do |ff|
-                %div.details{style: "float: left; width: 400px"}
-                  .entry
-                    %label Title
-                    = ff.select :title, ["Mr", "Mrs", "Ms", "Dr", "Miss"]
-                  .entry
-                    %label First Name
-                    = ff.text_field :first_name
-                  .entry
-                    %label Middle Names
-                    = ff.text_field :middle_names
-                  .entry
-                    %label Last Name
-                    = ff.text_field :last_name
-                  .entry
-                    %label Date of Birth
-                    = ff.text_field :dob
-                = ff.fields_for :address do |fff|
-                  %div.address{style: "float: left; width: 400px"}
-                    .entry
-                      %label Address Line 1
-                      = fff.text_field :address_line_1
-                    .entry
-                      %label Address Line 2
-                      = fff.text_field :address_line_2
-                    .entry
-                      %label Postal Town
-                      = fff.text_field :postal_town
-                    .entry
-                      %label County
-                      = fff.text_field :county
-                    .entry
-                      %label Postcode
-                      = fff.text_field :postcode
-                .clear
-            #beneficiaries.tab
-              = render :partial => "policies/forms/beneficiaries"
+              = render :partial => "policies/new/policy_holder", locals: {f: f}
 
 
 :javascript
@@ -62,7 +25,6 @@
     $("#tabs li").removeClass("active");
     $("#tabs a:first").parents("li").addClass("active");
     $(".tab:not(:first)").hide();
-
     $("#tabs a").click(function() {
       var ref = $(this).attr("href").split('#')[1];
       $("#tabs li").removeClass("active");

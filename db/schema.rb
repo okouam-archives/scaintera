@@ -11,50 +11,67 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120102210750) do
-
-  create_table "addresses", :force => true do |t|
-    t.integer "addressable_id"
-    t.string  "addressable_type"
-    t.string  "postcode"
-    t.string  "postal_town"
-    t.string  "address_line_1"
-    t.string  "address_line_2"
-    t.string  "county"
-    t.string  "country"
-  end
+ActiveRecord::Schema.define(:version => 20120111150046) do
 
   create_table "beneficiaries", :force => true do |t|
     t.integer  "policy_id",    :null => false
     t.string   "relationship"
-    t.string   "title"
-    t.string   "first_name"
-    t.string   "middle_names"
-    t.string   "last_name"
-    t.string   "employer"
-    t.string   "dob"
+    t.string   "names"
+    t.string   "surname"
+    t.string   "telephone"
+    t.datetime "dob"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "policies", :force => true do |t|
-    t.string   "policy_number",    :null => false
-    t.string   "category",         :null => false
-    t.string   "status",           :null => false
-    t.integer  "user_id",          :null => false
+  create_table "comments", :force => true do |t|
+    t.string   "title",            :limit => 50, :default => ""
+    t.text     "comment"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "insurance_products", :force => true do |t|
+    t.string   "cover",            :null => false
+    t.datetime "expiry_date"
+    t.decimal  "premium_amount"
     t.integer  "policy_holder_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "policies", :force => true do |t|
+    t.string   "category"
+    t.string   "status"
+    t.integer  "user_id",          :null => false
+    t.integer  "policy_holder_id", :null => false
+    t.string   "payment_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "policy_holders", :force => true do |t|
-    t.string   "first_name"
-    t.string   "middle_names"
-    t.string   "last_name"
-    t.string   "title"
-    t.string   "employer"
-    t.integer  "user_id"
+    t.string   "names"
+    t.string   "surname"
+    t.string   "nationality"
+    t.string   "gender"
+    t.string   "address"
+    t.string   "city"
+    t.string   "postcode"
+    t.string   "home_phone"
+    t.string   "mobile_phone"
     t.string   "dob"
+    t.string   "email"
+    t.boolean  "rents_property"
+    t.boolean  "owns_property"
+    t.boolean  "uses_money_transfers"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

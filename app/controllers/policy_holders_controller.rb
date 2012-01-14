@@ -1,7 +1,7 @@
 class PolicyHoldersController < ApplicationController
 
   def per_page
-    @per_page = params[:per_page] || 4
+    @per_page = params[:per_page] || 15
   end
 
   def page
@@ -18,11 +18,19 @@ class PolicyHoldersController < ApplicationController
   end
 
   def edit
-
+    @policy_holder = PolicyHolder.find(params[:id])
   end
 
   def update
-
+    policy_holder = PolicyHolder.find(params[:id])
+    if policy_holder.update_attributes(params[:policy_holder])
+      flash[:message] = "The policy holder has been successfully updated."
+      flash[:message_type] = "success"
+    else
+      flash[:message] = "Failure."
+      flash[:message_type] = "failure"
+    end
+    redirect_to edit_policy_holder_path(params[:id])
   end
 
   def create

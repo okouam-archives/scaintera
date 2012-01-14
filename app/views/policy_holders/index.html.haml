@@ -12,7 +12,7 @@
             %thead
               %tr
                 %th ID
-                %th Policy Holder
+                %th Full Name
                 %th Postcode
                 %th City
                 %th # Beneficiaries
@@ -25,9 +25,9 @@
                   %td
                     = policy_holder.id
                   %td
-                    = link_to policy_holder.first_name + " " + policy_holder.last_name, edit_policy_holder_path(policy_holder)
-                  %td= policy_holder.address ? policy_holder.address.postcode : ""
-                  %td= policy_holder.address ? policy_holder.address.postal_town : ""
+                    = link_to policy_holder.names + " " + policy_holder.surname, edit_policy_holder_path(policy_holder)
+                  %td= policy_holder.address ? policy_holder.postcode : ""
+                  %td= policy_holder.address ? policy_holder.city : ""
                   %td
                     = link_to policy_holder.beneficiaries.count, beneficiaries_path
                   %td

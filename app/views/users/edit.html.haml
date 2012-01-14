@@ -1,0 +1,18 @@
+= content_for :title, "New User"
+
+= content_for :search do
+  =render :partial => "search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %br
+          .tab{style: "border-top: 1px solid #ccc"}
+            = form_for @user do |f|
+              = render :partial => "users/form", locals: {f: f}
+              .actions
+                %button.red-button{style: "top: 0"}
+                  %div
+                    Update User

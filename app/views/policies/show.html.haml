@@ -9,7 +9,7 @@
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
           %h2
-            = "Policy ##{@policy.policy_number}"
+            = "Policy ##{@policy.id}"
           %br
           %ul#tabs.tabs
             %li.available.active= link_to "Policy", "#policy"
@@ -23,13 +23,13 @@
                 = @policy.user.login
               .entry
                 %label Date Created
-                = Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                = @policy.created_at.strftime("%Y-%m-%d")
               .entry
                 %label Status
-                = f.select(:status, ["Active", "Blocked"])
+                = f.enum_select :status, {}, {:style => "width: 100px"}
               .entry
                 %label Type
-                = f.select(:status, ["General - Senior", "Premium - Senior", "General - Adult", "Premium - Adult"])
+                = f.enum_select :category, {}, {:style => "width: 280px"}
               .actions
                 %button.blue-button
                   %div{style: "width: 150px"}

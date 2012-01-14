@@ -1,11 +1,11 @@
 class CreatePolicies < ActiveRecord::Migration
   def change
       create_table :policies do |t|
-        t.string :policy_number, :null => false
-        t.string :category, :null => false
-        t.string :status, :null => false
+        t.enum :category
+        t.enum :status
         t.integer :user_id, :null => false
         t.integer :policy_holder_id, :null => false
+        t.string :payment_type
         t.timestamps
       end
   end

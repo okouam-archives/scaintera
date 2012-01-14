@@ -1,4 +1,4 @@
-.block{style: "position: relative; top: -15px"}
+#calculator.block{style: "position: relative; top: -15px"}
   .block_content
     #portlets
       %h1{style: "margin-top: 10px"}
@@ -15,50 +15,27 @@
                 %th # Beneficiaries
                 %th Deposit
                 %th Premiums
+            %tfoot
+              %tr
+                %td
+                %td
+                %td
+                  %b{style: "float: right"}
+                    Total
+                %td.deposit
+                  £0.0
+                %td.premium
+                  £0.0
             %tbody
-              %tr
-                %td
-                  %input{type: "checkbox"}
-                %td
-                  %select{style: "width: 400px"}
-                %td
-                  %select{style: "width: 100px"}
-                %td
-                  £20.20
-                %td
-                  £20.20
-              %tr
-                %td
-                  %input{type: "checkbox"}
-                %td
-                  %select{style: "width: 400px"}
-                %td
-                  %select{style: "width: 100px"}
-                %td
-                  £20.20
-                %td
-                  £20.20
-              %tr
-                %td
-                  %input{type: "checkbox"}
-                %td
-                  %select{style: "width: 400px"}
-                %td
-                  %select{style: "width: 100px"}
-                %td
-                  £20.20
-                %td
-                  £20.20
-            %tfooter
-              %tr
-                %td
-                %td
-                %td
-                %td
-                  £45.44
-                %td
-                  £30.00
         .actions
-          %button.blue-button
-            %div{style: "width: 150px"}
+          %button.blue-button.add
+            %div{style: "width: 100px"}
               Add Policy
+          %button.blue-button.reset
+            %div{style: "width: 80px"}
+              Reset
+
+:javascript
+  $(function() {
+    new App.Views.Calculator({el: "#calculator"});
+  })

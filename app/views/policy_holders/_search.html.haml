@@ -15,11 +15,11 @@
       = form_for :s, :method => "get" do |f|
         .simple-search
           %label
-            First Name
-          = f.text_field :first_name
+            Names
+          = f.text_field :names
           %label
-            Last Name
-          = f.text_field :last_name
+            Surname
+          = f.text_field :surname
           %label
             Postcode
           = f.text_field :postcode
