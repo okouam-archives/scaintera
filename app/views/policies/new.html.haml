@@ -20,16 +20,17 @@
               = f.fields_for :policy_holder do |ff|
                 %div.details{style: "float: left; width: 400px"}
                   .entry
-                    %label Names
+                    %label
+                      Names *
                     = ff.text_field :names
                   .entry
-                    %label Surname
+                    %label Surname *
                     = ff.text_field :surname
                   .entry
-                    %label Date of Birth
+                    %label Date of Birth *
                     = ff.text_field :dob
                   .entry
-                    %label Nationality
+                    %label Nationality *
                     = ff.text_field :nationality
                   .entry
                     %label Gender
@@ -45,13 +46,13 @@
                     = ff.check_box :uses_money_transfers
                 %div.address{style: "float: left; width: 400px; margin-left: 40px"}
                   .entry
-                    %label Address
+                    %label Address *
                     = ff.text_field :address
                   .entry
-                    %label City
+                    %label City *
                     = ff.text_field :city
                   .entry
-                    %label Postcode
+                    %label Postcode *
                     = ff.text_field :postcode
                   .entry
                     %label Home Phone
@@ -60,7 +61,7 @@
                     %label Mobile Phone
                     = ff.text_field :mobile_phone
                   .entry
-                    %label Email
+                    %label Email *
                     = ff.text_field :email
                   .clear
                 .clear
