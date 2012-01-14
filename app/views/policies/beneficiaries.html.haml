@@ -45,9 +45,9 @@
                       %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
 
             .toolbar{:style=>"margin-bottom: 10px"}
-              %button.gray-button
+              %button.gray-button.add
                 %div{style: "width: 130px"} Add Beneficiary
 :javascript
   $(function() {
-
+    new App.Views.BeneficiaryEditor({el: "#beneficiaries", policy_id: #{@policy.id}});
   });

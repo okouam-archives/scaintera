@@ -8,29 +8,71 @@
     #portlets
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
-          %br
           %ul#tabs.tabs
-            %li.available.active= link_to "Policy", "#policy"
-            %li.available= link_to "Policy Holder", "#policyholder"
-          = form_for @policy do |f|
-            #policy.tab
-              = render :partial => "policies/new/policy", locals: {f: f}
-            #policyholder.tab
-              = render :partial => "policies/new/policy_holder", locals: {f: f}
-
-
-:javascript
-  $(function() {
-    $(".tab:first").show();
-    $("#tabs li").removeClass("active");
-    $("#tabs a:first").parents("li").addClass("active");
-    $(".tab:not(:first)").hide();
-    $("#tabs a").click(function() {
-      var ref = $(this).attr("href").split('#')[1];
-      $("#tabs li").removeClass("active");
-      $(this).parents("li").addClass("active");
-      $(".tab:not(#" + ref + ")").hide();
-      $("#" + ref).show();
-      return false;
-    })
-  })
+            %li.available.active= link_to "New Policy", "policy"
+          .tab
+            = form_for @policy do |f|
+              = f.hidden_field :user_id
+              .entry
+                %label Category
+                = f.enum_select :category
+              %br
+              = f.fields_for :policy_holder do |ff|
+                %div.details{style: "float: left; width: 400px"}
+                  .entry
+                    %label Names
+                    = ff.text_field :names
+                  .entry
+                    %label Surname
+                    = ff.text_field :surname
+                  .entry
+                    %label Date of Birth
+                    = ff.text_field :dob
+                  .entry
+                    %label Nationality
+                    = ff.text_field :nationality
+                  .entry
+                    %label Gender
+                    = ff.enum_select :gender
+                  .entry
+                    %label Rents property
+                    = ff.check_box :rents_property
+                  .entry
+                    %label Owns property
+                    = ff.check_box :owns_property
+                  .entry
+                    %label Does money transfers
+                    = ff.check_box :uses_money_transfers
+                %div.address{style: "float: left; width: 400px; margin-left: 40px"}
+                  .entry
+                    %label Address
+                    = ff.text_field :address
+                  .entry
+                    %label City
+                    = ff.text_field :city
+                  .entry
+                    %label Postcode
+                    = ff.text_field :postcode
+                  .entry
+                    %label Home Phone
+                    = ff.text_field :home_phone
+                  .entry
+                    %label Mobile Phone
+                    = ff.text_field :mobile_phone
+                  .entry
+                    %label Email
+                    = ff.text_field :email
+                  .clear
+                .clear
+                - unless @policy.errors.empty?
+                  .errors
+                    = @policy.errors.full_messages
+                .actions
+                  - if @policy.persisted?
+                    %button.blue-button
+                      %div{style: "width: 150px"}
+                        Save changes
+                  - else
+                    %button.red-button{style: "top: 0"}
+                      %div
+                        Create Policy
