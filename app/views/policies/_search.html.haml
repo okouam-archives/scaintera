@@ -24,9 +24,10 @@
           %label
             Policy Holder Surname
           = f.text_field :policy_holder_surname
-          %label
-            Agent
-          = f.text_field :agent
+          - unless current_user.role == :agent
+            %label
+              Agent
+            = f.text_field :agent
           %label
             Type
           = select_tag "category", options_for_select([""] + Policy.new.enums(:category).select_options), :name => "s[category]"

@@ -8,13 +8,14 @@ class BeneficiarySearch
     end
   end
 
-  def execute(page, per_page)
+  def execute(page, per_page, user)
     query = Beneficiary.scoped
     query = query.where("names ilike ? OR surname ilike ?", "%#{@name}%", "%#{@name}%") if @name.present?
     query = query.where("names ilike ?", "%#{@names}%") if @names.present?
     query = query.where("surname ilike ?", "%#{@surname}%") if @surname.present?
     query = query.where("telephone ilike ?", "%#{@telephone}%") if @telephone.present?
     query = query.where("dob = ?", "#{@dob}") if @dob.present?
+    query = query.joins(:policy).where("user_id = ?", user.id) if user.role == :agent
     query.paginate(per_page: per_page, page: page)
   end
 

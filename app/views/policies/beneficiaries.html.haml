@@ -20,29 +20,30 @@
             %table
               %thead
                 %th
-                %th
                 %th Names
                 %th Surname
                 %th Relationship
                 %th Telephone
                 %th Date of Birth
+                %th
               %tbody
                 - for beneficiary in @policy.beneficiaries
                   %tr
                     %td{style: "padding: 2px"}
                       %a{class: 'remove', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                    %td
+                      %input{type: "text", style: "border: 1px solid #efefef", value: beneficiary.names}
+                    %td
+                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.surname}
+                    %td
+                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.relationship}
+                    %td
+                      %input{type: "text", style: "border: 1px solid #efefef", value: beneficiary.telephone}
+                    %td
+                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.dob.strftime("%Y-%m-%d")  }
                     %td{style: "padding: 2px"}
-                      %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -18px -41px transparent', href: '#'}
-                    %td
-                      = beneficiary.names
-                    %td
-                      = beneficiary.surname
-                    %td
-                      = beneficiary.relationship
-                    %td
-                      = beneficiary.telephone
-                    %td
-                      = beneficiary.dob.strftime("%Y-%m-%d")
+                      %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
+
             .toolbar{:style=>"margin-bottom: 10px"}
               %button.gray-button
                 %div{style: "width: 130px"} Add Beneficiary

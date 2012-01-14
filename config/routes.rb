@@ -6,9 +6,10 @@ Scaintera::Application.routes.draw do
     resources :comments
   end
 
-  resources :policy_holders
-
-  resources :insurance_products
+  resources :policy_holders do
+    resources :insurance_products
+    resources :comments
+  end
 
   resources :users, :beneficiaries
 

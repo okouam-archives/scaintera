@@ -5,6 +5,7 @@ App.Collections = {};
 App.Helpers = {};
 
 App.Runtime = {};
+App.Runtime.Current = {};
 App.Runtime.Models = {};
 App.Runtime.Views = {};
 App.Runtime.Collections = {};

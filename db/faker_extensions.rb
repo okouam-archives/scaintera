@@ -18,6 +18,9 @@ module Faker
   end
   class Person < Base
     class << self
+      def nationality
+        ['Ivorian', 'British', 'French', 'American', 'Russian', 'Japanese', 'Dutch'].sample(1)[0]
+      end
       def relationship
         ['Daughter', 'Son', 'Cousin', 'Brother-in-law', 'Sister-in-law', 'Uncle', 'Aunt', 'Nephew', 'Niece'].sample(1)[0]
       end

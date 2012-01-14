@@ -10,7 +10,7 @@ class PoliciesController < ApplicationController
 
   def index
     search = PolicySearch.new(params[:s])
-    @policies = search.execute(page, per_page)
+    @policies = search.execute(page, per_page, current_user)
   end
 
   def new

@@ -8,7 +8,7 @@ class PolicySearch
     end
   end
 
-  def execute(page, per_page)
+  def execute(page, per_page, user)
     query = Policy.scoped
     query = query.joins([:user, :policy_holder])
     query = query.where("policies.id = ?", "#{@policy_number}") if @policy_number.present?
@@ -18,6 +18,7 @@ class PolicySearch
     query = query.where("policies.created_at > ?", "%#{@added_after}%") if @added_after.present?
     query = query.where("policies.created_at < ?", "%#{@added_before}%") if @added_before.present?
     query = query.where("policy_holders.surname ilike ? ", "%#{@policy_holder_surname}%") if @policy_holder_surname.present?
+    query = query.where("user_id = ?", user.id) if user.role == :agent
     query.paginate(per_page: per_page, page: page)
   end
 

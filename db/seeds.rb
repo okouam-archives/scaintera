@@ -34,7 +34,13 @@ User.create!([
   { login: "fifi", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "auditor",
     status: "active"},
   { login: "suzanne", password: "changeme", email: Faker::Internet.email, password_confirmation: "changeme", role: "auditor",
-    status: :blocked}
+    status: :blocked},
+  { login: "administrator", password: "administrator", email: Faker::Internet.email, password_confirmation: "administrator", role: "administrator",
+    status: :active},
+  { login: "auditor", password: "auditor", email: Faker::Internet.email, password_confirmation: "auditor", role: "auditor",
+    status: :active},
+  { login: "agent", password: "agent", email: Faker::Internet.email, password_confirmation: "agent", role: "agent",
+    status: :active}
 ])
 
 1..20.times do
@@ -52,7 +58,8 @@ User.create!([
       home_phone: Faker::PhoneNumber.phone_number,
       rents_property: Faker::Logic.boolean,
       owns_property: Faker::Logic.boolean,
-      uses_money_transfers: Faker::Logic.boolean
+      uses_money_transfers: Faker::Logic.boolean,
+      nationality: Faker::Person.nationality
     }
   )
 end

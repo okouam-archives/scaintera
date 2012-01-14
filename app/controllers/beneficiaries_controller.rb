@@ -10,7 +10,7 @@ class BeneficiariesController < ApplicationController
 
   def index
     search = BeneficiarySearch.new(params[:s])
-    @beneficiaries = search.execute(page, per_page)
+    @beneficiaries = search.execute(page, per_page, current_user)
   end
 
   def new
