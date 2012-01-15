@@ -17,6 +17,8 @@
             %li= link_to "Beneficiaries", policy_beneficiaries_path(@policy)
             %li= link_to "Comments", policy_comments_path(@policy)
           #policy_holder.tab
+            %h3{style: "margin-bottom: 10px"}
+              Policy Holder Details
             %div.details{style: "float: left; width: 400px"}
               .entry
                 %label Names
@@ -26,7 +28,7 @@
                 = @policy.policy_holder.surname
               .entry
                 %label Date of Birth
-                = @policy.policy_holder.dob
+                = @policy.policy_holder.dob.strftime("%Y-%m-%d")
               .entry
                 %label Nationality
                 = @policy.policy_holder.nationality
@@ -73,11 +75,11 @@
                   %th Premium Amount
                   %th Expiry Date
                 %tbody
-                - for insurance_product in @policy.policy_holder.insurance_products
-                  %tr
-                    %td= insurance_product.cover
-                    %td= insurance_product.premium_amount
-                    %td= insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : ""
+                  - for insurance_product in @policy.policy_holder.insurance_products
+                    %tr
+                      %td= insurance_product.cover
+                      %td= insurance_product.premium_amount
+                      %td= insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : ""
             .toolbar{:style=>"margin-bottom: 10px"}
               = form_for :policy_holder, :method => :get, :url => "/policy_holders/#{@policy.policy_holder.id}/edit" do
                 %button.gray-button

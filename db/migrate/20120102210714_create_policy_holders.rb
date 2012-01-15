@@ -10,7 +10,7 @@ class CreatePolicyHolders < ActiveRecord::Migration
         t.string :postcode
         t.string :home_phone
         t.string :mobile_phone
-        t.string :dob
+        t.datetime :dob
         t.string :email
         t.boolean :rents_property
         t.boolean :owns_property

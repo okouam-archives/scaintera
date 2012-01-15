@@ -17,7 +17,7 @@
             %li.active= link_to "Beneficiaries", "#"
             %li= link_to "Comments", policy_comments_path(@policy)
           #beneficiaries.tab
-            %table
+            %table{style: "border: 1px solid #ccc"}
               %thead
                 %th
                 %th Names
@@ -28,26 +28,28 @@
                 %th
               %tbody
                 - for beneficiary in @policy.beneficiaries
-                  %tr
+                  %tr{:"data-id" => beneficiary.id}
                     %td{style: "padding: 2px"}
-                      %a{class: 'remove', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                      %a{class: 'remove', title: "Remove beneficiary", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
                     %td
-                      %input{type: "text", style: "border: 1px solid #efefef", value: beneficiary.names}
+                      %input{type: "text", name: "names", style: "border: 1px solid #efefef", value: beneficiary.names}
                     %td
-                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.surname}
+                      %input{type: "text", name: "surname", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.surname}
                     %td
-                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.relationship}
+                      %input{type: "text", name: "relationship", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.relationship}
                     %td
-                      %input{type: "text", style: "border: 1px solid #efefef", value: beneficiary.telephone}
+                      %input{type: "text", name: "telephone", style: "border: 1px solid #efefef", value: beneficiary.telephone}
                     %td
-                      %input{type: "text", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.dob.strftime("%Y-%m-%d")  }
+                      %input{type: "text", name: "dob", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.dob.strftime("%Y-%m-%d")  }
                     %td{style: "padding: 2px"}
-                      %a{class: 'edit', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
-
+                      %a{class: 'save', title: "Save your changes", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
+            .errors{style: "margin-bottom: 12px; display: none"}
             .toolbar{:style=>"margin-bottom: 10px"}
               %button.gray-button.add
                 %div{style: "width: 130px"} Add Beneficiary
 :javascript
   $(function() {
+    $('#beneficiaries .save').tipsy({gravity: 'w'});
+    $('#beneficiaries .remove').tipsy({gravity: 'e'});
     new App.Views.BeneficiaryEditor({el: "#beneficiaries", policy_id: #{@policy.id}});
   });

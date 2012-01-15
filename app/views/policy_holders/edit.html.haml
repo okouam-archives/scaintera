@@ -15,7 +15,6 @@
             %li.active= link_to "Details", "#details"
             %li= link_to "Other Insurance Products", "#other_insurance_products"
             %li= link_to "Policies", "#policies"
-            %li= link_to "Comments", "#comments"
           #details.tab
             = form_for @policy_holder,:url => "/policy_holders/#{@policy_holder.id}", :method => :put do |f|
               %div.details{style: "float: left; width: 400px"}
@@ -63,14 +62,18 @@
                   %label Email
                   = f.text_field :email
               .clear
-              .message.success
-                = flash[:message]
+              - if flash[:message] && flash[:message_type] == :errors
+                .errors
+                  = flash[:message].join(", ")
+              - if flash[:message] && flash[:message_type] == :notifications
+                .notifications
+                  = flash[:message].join(", ")
               .actions
                 %button.blue-button
                   %div{style: "width: 150px"}
                     Save changes
           #policies.tab
-            %table
+            %table{style: "border: 1px solid #ccc"}
               %thead
                 %th
                   Policy
@@ -94,7 +97,7 @@
                     %td= policy.enums(:category).label(policy.category)
                     %td= policy.beneficiaries.map {|beneficiary| beneficiary.full_name}.join(", ")
           #other_insurance_products.tab
-            %table
+            %table{style: "border: 1px solid #ccc"}
               %thead
                 %th
                 %th Cover
@@ -105,16 +108,16 @@
                 - for insurance_product in @policy_holder.insurance_products
                   %tr{:"data-id" => insurance_product.id}
                     %td{style: "padding: 2px; width: 40px"}
-                      %a{class: 'remove', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                      %a{class: 'remove', title: "Remove insurance product", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
                     %td
-                      %input.cover{type: "text", value: insurance_product.cover, style: "border: 1px solid #efefef"}
+                      %input.cover{type: "text", name: "cover", value: insurance_product.cover, style: "border: 1px solid #efefef"}
                     %td
-                      %input.premium_amount{type: "text", value: insurance_product.premium_amount, style: "border: 1px solid #efefef"}
+                      %input.premium_amount{type: "text", name: "premium_amount", value: insurance_product.premium_amount, style: "border: 1px solid #efefef"}
                     %td
-                      %input.expiry_date{type: "text", value: insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : "", style: "border: 1px solid #efefef"}
+                      %input.expiry_date{type: "text", name: "expiry_date", value: insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : "", style: "border: 1px solid #efefef"}
                     %td{style: "padding: 2px; width: 30px"}
-                      %a{class: 'save', style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
-
+                      %a{class: 'save', title: "Save changes", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
+            .errors{style: "margin-bottom: 12px; display: none"}
             .toolbar{:style=>"margin-bottom: 10px"}
               %button.gray-button.add
                 %div{style: "width: 130px"} Add Insurance Product
@@ -123,14 +126,16 @@
 
 :javascript
   $(function() {
-
+    $('#other_insurance_products .save').tipsy({gravity: 'w'});
+    $('#other_insurance_products .remove').tipsy({gravity: 'e'});
     new App.Views.InsuranceProductEditor({el: "#other_insurance_products", policy_holder_id: #{@policy_holder.id}});
     $(".tab:first").show();
     $("#tabs li").removeClass("active");
     $("#tabs a:first").parents("li").addClass("active");
     $(".tab:not(:first)").hide();
-
     $("#tabs a").click(function() {
+      $(".errors").hide();
+      $(".notifications").hide();
       var ref = $(this).attr("href").split('#')[1];
       $("#tabs li").removeClass("active");
       $(this).parents("li").addClass("active");

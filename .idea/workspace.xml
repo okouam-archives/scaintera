@@ -23,37 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/policy_holders/edit.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="4" selection-start="5064" selection-end="5176" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="policy_holder.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/policies/policy_holder.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insurance_product_editor.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="beneficiaries.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="74" selection-start="2464" selection-end="2464" vertical-scroll-proportion="0.0">
+            <state line="22" column="54" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/policy_holders/edit.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="119" column="12" selection-start="5204" selection-end="5256" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,7 +44,34 @@
       <file leaf-file-name="beneficiary_editor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0">
+            <state line="56" column="39" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beneficiary.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="61" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="beneficiaries_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/beneficiaries_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="74" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insurance_products_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/insurance_products_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="53" selection-start="602" selection-end="602" vertical-scroll-proportion="0.4694486">
               <folding />
             </state>
           </provider>
@@ -71,43 +80,16 @@
       <file leaf-file-name="row_editor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="66" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
+            <state line="46" column="17" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_policy.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/policies/new/_policy.html.haml">
+      <file leaf-file-name="insurance_product_editor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.haml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/policies/new.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="34" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.8844376">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/policies/show.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="308" selection-end="617" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="beneficiary_search.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="53" column="10" selection-start="2149" selection-end="2175" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,22 +109,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/beneficiaries_controller.rb" />
-        <option value="$PROJECT_DIR$/app/services/beneficiary_search.rb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/tabs.css.erb" />
-        <option value="$PROJECT_DIR$/app/views/policy_holders/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/setup.js" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/policy_holders/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/models/insurance_product.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/insurance_products_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js" />
-        <option value="$PROJECT_DIR$/app/views/policies/new/_policy_holder.html.haml" />
         <option value="$PROJECT_DIR$/app/views/policies/new/_policy.html.haml" />
         <option value="$PROJECT_DIR$/app/views/policies/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/support/jquery.tipsy.js" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/insurance_products_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/policy_holders_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/tabs.css.erb" />
+        <option value="$PROJECT_DIR$/app/views/policy_holders/edit.html.haml" />
+        <option value="$PROJECT_DIR$/db/migrate/20120102210714_create_policy_holders.rb" />
+        <option value="$PROJECT_DIR$/app/views/policies/policy_holder.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js" />
+        <option value="$PROJECT_DIR$/app/controllers/beneficiaries_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/beneficiary.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js" />
       </list>
     </option>
   </component>
@@ -498,162 +480,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="support" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scaintera" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1046,100 +872,37 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="4" selection-start="2377" selection-end="2456" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/setup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="90" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="42" selection-start="582" selection-end="582" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/insurance_products_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="70" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/insurance_product.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="15" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/search.js">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120102210750_create_beneficiaries.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policy_holders/edit.html.haml">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120102210714_create_policy_holders.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="4" selection-start="5064" selection-end="5176" vertical-scroll-proportion="0.0">
+        <state line="11" column="50" selection-start="345" selection-end="345" vertical-scroll-proportion="0.23809524">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policies/policy_holder.html.haml">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120102210655_create_policies.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120109195446_create_insurance_products.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="74" selection-start="2464" selection-end="2464" vertical-scroll-proportion="0.0">
+        <state line="11" column="54" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js">
+    <entry file="file://$PROJECT_DIR$/app/views/policies/new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="66" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policies/new/_policy.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="63" column="34" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1151,9 +914,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policies/new.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/views/policies/policy_holder.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="34" selection-start="2260" selection-end="2260" vertical-scroll-proportion="0.8844376">
+        <state line="35" column="60" selection-start="1254" selection-end="1254" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="17" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/policy_holders/edit.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="12" selection-start="5204" selection-end="5256" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="61" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="54" selection-start="751" selection-end="751" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="10" selection-start="2149" selection-end="2175" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="39" selection-start="2384" selection-end="2384" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/beneficiaries_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="74" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/insurance_products_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="53" selection-start="602" selection-end="602" vertical-scroll-proportion="0.4694486">
           <folding />
         </state>
       </provider>

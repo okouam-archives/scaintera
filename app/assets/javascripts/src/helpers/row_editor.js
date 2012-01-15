@@ -1,10 +1,22 @@
 App.Helpers.RowEditor = Backbone.View.extend({
 
+  events: {
+    "change input": "highlight",
+    "click .remove": "remove",
+    "click .add": "add",
+    "click .save": "accept"
+  },
+
   remove: function(evt) {
     var $row = this.getRow(evt);
     var id = $row.data("id");
     this.deleteItem(id, function() {
-      $row.remove();
+      $row.fadeOut('slow', function() {
+        $(".tipsy").remove();
+        $row.remove();
+        $('.block table tr').css('background-color', 'white');
+        $('.block table tr:odd').css('background-color', '#fbfbfb');
+      })
     }.bind(this))
   },
 
@@ -14,11 +26,15 @@ App.Helpers.RowEditor = Backbone.View.extend({
     $inputs.each(function() {
       values[this.name] = $(this).val();
     });
-    return $values;
+    return values;
   },
 
   add: function() {
-    $(this.el).find("table > tbody").append(_.template(this.TEMPLATE)).find("tr:last");
+    $row = $(this.el).find("table > tbody").append(_.template(this.TEMPLATE)).find("tr:last");
+    $row.find('.save').tipsy({gravity: 'w'});
+    $row.find('.remove').tipsy({gravity: 'e'});
+    $('.block table tr').css('background-color', 'white');
+    $('.block table tr:odd').css('background-color', '#fbfbfb');
     return false;
   },
 
@@ -28,6 +44,7 @@ App.Helpers.RowEditor = Backbone.View.extend({
 
   removeHighlights: function($row) {
     $row.find("td").removeClass("field_with_changes");
+    return false;
   },
 
   getRow: function(evt) {

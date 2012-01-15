@@ -10,18 +10,18 @@ class InsuranceProductsController < ApplicationController
     product = InsuranceProduct.new(params[:insurance_product])
     product.policy_holder_id = params[:policy_holder_id]
     if product.save
-      render :text => product.id
+      render :json => {id: product.id}
     else
-      render :text => product.errors
+      render :json => {errors: product.errors.full_messages}, :status => 500
     end
   end
 
   def update
     product = InsuranceProduct.find(params[:id])
     if product.update_attributes(params[:insurance_product])
-      head :ok
+      render :json => {}
     else
-      render :text => product.errors
+      render :json => {errors: product.errors.full_messages}, :status => 500
     end
   end
 

@@ -24,11 +24,11 @@ class PolicyHoldersController < ApplicationController
   def update
     policy_holder = PolicyHolder.find(params[:id])
     if policy_holder.update_attributes(params[:policy_holder])
-      flash[:message] = "The policy holder has been successfully updated."
-      flash[:message_type] = "success"
+      flash[:message] = ["The policy holder has been successfully updated."]
+      flash[:message_type] = :notifications
     else
-      flash[:message] = "Failure."
-      flash[:message_type] = "failure"
+      flash[:message] = policy_holder.errors.full_messages
+      flash[:message_type] = :errors
     end
     redirect_to edit_policy_holder_path(params[:id])
   end
