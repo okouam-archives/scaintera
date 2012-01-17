@@ -34,9 +34,11 @@
                     = policy_holder.policies.count
                   %td= policy_holder.created_at.strftime("%Y-%m-%d")
                   %td
-                    %button.gray-button
-                      %div
-                        New Policy
+                    %form{action: "/policies/new", method: "get"}
+                      %input{type: "hidden", name: "policy_holder_id", value: policy_holder.id}
+                      %button.gray-button
+                        %div
+                          New Policy
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

@@ -15,7 +15,11 @@ class PoliciesController < ApplicationController
 
   def new
     @policy = Policy.new({user: current_user})
-    @policy.build_policy_holder
+    if policy_holder_id = params[:policy_holder_id]
+      @policy.policy_holder = PolicyHolder.find(policy_holder_id)
+    else
+      @policy.build_policy_holder
+    end
   end
 
   def show

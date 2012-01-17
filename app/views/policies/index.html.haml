@@ -27,7 +27,7 @@
                   %td= policy.enums(:category).label(policy.category)
                   %td= policy.enums(:status).label(policy.status)
                   %td= policy.user.login
-                  %td= Time.now.ago(rand(1000000000)).strftime("%Y-%m-%d")
+                  %td= policy.created_at.strftime("%Y-%m-%d")
             .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

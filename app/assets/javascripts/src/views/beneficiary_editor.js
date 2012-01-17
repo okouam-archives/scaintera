@@ -12,7 +12,7 @@ App.Views.BeneficiaryEditor = App.Helpers.RowEditor.extend({
         <input name='relationship' class='relationship' type='text' style='border: 1px solid #efefef; width: 100px' /> \
       </td> \
       <td><input name='telephone' class='telephone' type='text' style='border: 1px solid #efefef' /></td> \
-      <td><input name='dob' class='dob' type='text' style='border: 1px solid #efefef; width: 100px' /></td> \
+      <td><input name='dob' class='dob date_picker' type='text' style='border: 1px solid #efefef; width: 100px' /></td> \
       <td style='padding: 2px; width: 30px'> \
         <a class='save' title='Save changes' style='display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent' href='#'></a> \
       </td>",

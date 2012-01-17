@@ -23,37 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculator.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="95" selection-start="3230" selection-end="3230" vertical-scroll-proportion="-4.2586207">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="policy_holder_search.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/policy_holder_search.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insurance_product_editor.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/insurance_product_editor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="10" selection-start="2149" selection-end="2175" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="beneficiary_editor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.0">
+            <state line="26" column="51" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,10 +41,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="new.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/policies/new.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="59" selection-start="2930" selection-end="2930" vertical-scroll-proportion="0.9329359">
+            <state line="16" column="58" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="policies_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/policies_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="0" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/policies/index.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="40" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/policy_holders/index.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="70" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -104,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="row_editor.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="row_editor.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="42" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
+            <state line="35" column="21" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7824143">
               <folding />
             </state>
           </provider>
@@ -127,9 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/insurance_products_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/policy_holders_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/tabs.css.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20120102210714_create_policy_holders.rb" />
         <option value="$PROJECT_DIR$/app/views/policies/policy_holder.html.haml" />
@@ -138,11 +135,14 @@
         <option value="$PROJECT_DIR$/app/models/beneficiary.rb" />
         <option value="$PROJECT_DIR$/app/views/calculators/show.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js" />
         <option value="$PROJECT_DIR$/app/views/policies/beneficiaries.html.haml" />
         <option value="$PROJECT_DIR$/app/views/policy_holders/edit.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/policies/index.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/policy_holders/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/policies/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/policies_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js" />
       </list>
     </option>
   </component>
@@ -1024,27 +1024,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="61" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/beneficiaries_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="74" selection-start="903" selection-end="903" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/insurance_products_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="39" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
@@ -1087,20 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="42" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="2213" selection-end="2213" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/setup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1129,9 +1094,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/policies/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="40" selection-start="926" selection-end="926" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/policy_holders/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="70" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/policies_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/policies/new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="59" selection-start="2930" selection-end="2930" vertical-scroll-proportion="0.9329359">
+        <state line="16" column="58" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/beneficiary_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="51" selection-start="1468" selection-end="1468" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/helpers/row_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="21" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7824143">
           <folding />
         </state>
       </provider>

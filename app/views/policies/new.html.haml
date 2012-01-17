@@ -13,6 +13,8 @@
           .tab
             = form_for @policy do |f|
               = f.hidden_field :user_id
+              - if @policy.policy_holder.persisted?
+                = f.hidden_field :policy_holder_id, :value => @policy.policy_holder.id
               .entry
                 %label Category
                 = f.enum_select :category
