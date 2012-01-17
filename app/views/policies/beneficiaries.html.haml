@@ -40,7 +40,7 @@
                     %td
                       %input{type: "text", name: "telephone", style: "border: 1px solid #efefef", value: beneficiary.telephone}
                     %td
-                      %input{type: "text", name: "dob", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.dob.strftime("%Y-%m-%d")  }
+                      %input.date_picker{type: "text", name: "dob", style: "border: 1px solid #efefef; width: 100px", value: beneficiary.dob.strftime("%Y-%m-%d")  }
                     %td{style: "padding: 2px"}
                       %a{class: 'save', title: "Save your changes", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
             .errors{style: "margin-bottom: 12px; display: none"}
@@ -49,6 +49,7 @@
                 %div{style: "width: 130px"} Add Beneficiary
 :javascript
   $(function() {
+    $(".date_picker").datepicker({dateFormat: 'yy-mm-dd'});
     $('#beneficiaries .save').tipsy({gravity: 'w'});
     $('#beneficiaries .remove').tipsy({gravity: 'e'});
     new App.Views.BeneficiaryEditor({el: "#beneficiaries", policy_id: #{@policy.id}});

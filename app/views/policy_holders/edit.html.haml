@@ -26,7 +26,7 @@
                   = f.text_field :surname
                 .entry
                   %label Date of Birth
-                  = f.text_field :dob
+                  = f.text_field :dob, :class => "date_picker", :value => (@policy_holder.dob.blank? ? "" : @policy_holder.dob.strftime("%Y-%m-%d"))
                 .entry
                   %label Nationality
                   = f.text_field :nationality
@@ -126,6 +126,7 @@
 
 :javascript
   $(function() {
+    $(".date_picker").datepicker({dateFormat: 'yy-mm-dd'});
     $('#other_insurance_products .save').tipsy({gravity: 'w'});
     $('#other_insurance_products .remove').tipsy({gravity: 'e'});
     new App.Views.InsuranceProductEditor({el: "#other_insurance_products", policy_holder_id: #{@policy_holder.id}});

@@ -49,7 +49,6 @@ App.Views.BeneficiaryEditor = App.Helpers.RowEditor.extend({
           return this.showErrors(eval("(" + response.responseText + ")").errors);
         }.bind(this),
         success: function(response) {
-          console.debug(response);
           $row.data("id", response.id);
           return this.removeHighlights($row);
         }.bind(this)

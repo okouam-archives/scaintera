@@ -28,7 +28,7 @@
                     = ff.text_field :surname
                   .entry
                     %label Date of Birth *
-                    = ff.text_field :dob
+                    = ff.text_field :dob, :class => "date_picker"
                   .entry
                     %label Nationality *
                     = ff.text_field :nationality
@@ -77,3 +77,8 @@
                     %button.red-button{style: "top: 0"}
                       %div
                         Create Policy
+
+:javascript
+  $(function() {
+    $(".date_picker").datepicker({dateFormat: 'yy-mm-dd'});
+  })

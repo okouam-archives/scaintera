@@ -33,6 +33,7 @@ App.Helpers.RowEditor = Backbone.View.extend({
     $row = $(this.el).find("table > tbody").append(_.template(this.TEMPLATE)).find("tr:last");
     $row.find('.save').tipsy({gravity: 'w'});
     $row.find('.remove').tipsy({gravity: 'e'});
+    $row.find('.datepicker').datepicker();
     $('.block table tr').css('background-color', 'white');
     $('.block table tr:odd').css('background-color', '#fbfbfb');
     return false;
