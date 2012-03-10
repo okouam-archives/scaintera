@@ -8,11 +8,6 @@ class PoliciesController < ApplicationController
     params[:page] || 1
   end
 
-  def index
-    search = PolicySearch.new(params[:s])
-    @policies = search.execute(page, per_page, current_user)
-  end
-
   def new
     @policy = Policy.new({user: current_user})
     if policy_holder_id = params[:policy_holder_id]

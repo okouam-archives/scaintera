@@ -1,6 +1,6 @@
-class CreateInsuranceProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration
   def change
-      create_table :insurance_products do |t|
+      create_table :products do |t|
         t.string :cover, :null => false
         t.datetime :expiry_date
         t.decimal :premium_amount

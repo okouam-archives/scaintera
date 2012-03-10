@@ -1,6 +1,5 @@
 load "#{Rails.root}/db/faker_extensions.rb"
 
-Policy.delete_all
 PolicyHolder.delete_all
 Beneficiary.delete_all
 User.delete_all
@@ -13,11 +12,6 @@ end
 def find_policy_holder
   policy_holders = PolicyHolder.all
   policy_holders[Random.rand(policy_holders.count)]
-end
-
-def find_policy
-  policies = Policy.all
-  policies[Random.rand(policies.count)]
 end
 
 User.create!([
@@ -59,23 +53,16 @@ User.create!([
       rents_property: Faker::Logic.boolean,
       owns_property: Faker::Logic.boolean,
       uses_money_transfers: Faker::Logic.boolean,
-      nationality: Faker::Person.nationality
+      nationality: Faker::Person.nationality,
+      status: Faker::Policy.status
     }
   )
 end
 
-1..30.times do
-  Policy.create!({
-    user: find_user,
-    status: Faker::Policy.status,
-    category: Faker::Policy.category,
-    policy_holder: find_policy_holder
-  })
-end
-
 1..60.times do
   Beneficiary.create!({
-    policy: find_policy,
+    policy_holder: find_policy_holder,
+    category: Faker::Policy.category,
     names: Faker::Name.first_name,
     telephone: Faker::PhoneNumber.phone_number,
     surname: Faker::Name.last_name,
@@ -85,7 +72,7 @@ end
 end
 
 1..40.times do
-  InsuranceProduct.create!({
+  Product.create!({
     policy_holder: find_policy_holder,
     cover: Faker::InsuranceProduct.cover,
     expiry_date: Faker::Name.last_name,

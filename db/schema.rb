@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(:version => 20120111150046) do
 
   create_table "beneficiaries", :force => true do |t|
-    t.integer  "policy_id",    :null => false
+    t.string   "category"
+    t.integer  "policy_holder_id", :null => false
     t.string   "relationship"
     t.string   "names"
     t.string   "surname"
@@ -38,30 +39,14 @@ ActiveRecord::Schema.define(:version => 20120111150046) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
-  create_table "insurance_products", :force => true do |t|
-    t.string   "cover",            :null => false
-    t.datetime "expiry_date"
-    t.decimal  "premium_amount"
-    t.integer  "policy_holder_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "policies", :force => true do |t|
-    t.string   "category"
-    t.string   "status"
-    t.integer  "user_id",          :null => false
-    t.integer  "policy_holder_id", :null => false
-    t.string   "payment_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "policy_holders", :force => true do |t|
     t.string   "names"
     t.string   "surname"
     t.string   "nationality"
     t.string   "gender"
+    t.string   "status"
+    t.integer  "user_id"
+    t.string   "payment_type"
     t.string   "address"
     t.string   "city"
     t.string   "postcode"
@@ -72,6 +57,15 @@ ActiveRecord::Schema.define(:version => 20120111150046) do
     t.boolean  "rents_property"
     t.boolean  "owns_property"
     t.boolean  "uses_money_transfers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "cover",            :null => false
+    t.datetime "expiry_date"
+    t.decimal  "premium_amount"
+    t.integer  "policy_holder_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -18,6 +18,10 @@ class BeneficiariesController < ApplicationController
     head :ok
   end
 
+  def show
+    @policy_holder = PolicyHolder.find(params[:id])
+  end
+
   def create
     beneficiary = Beneficiary.new(params[:beneficiary])
     beneficiary.policy_id = params[:policy_id]

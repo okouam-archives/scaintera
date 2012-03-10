@@ -1,0 +1,45 @@
+= content_for :title, "Remarques"
+
+= content_for :search do
+  = render :partial => "policy_holders/search"
+
+.block
+  .block_content
+    #portlets
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
+        .portlet-content.nopadding
+          %h2
+            = @policy_holder.names + " " + @policy_holder.surname
+          %br
+          %ul#tabs.tabs
+            %li.available= link_to "Profile", "/policy_holders/#{@policy_holder.id}/edit"
+            %li.active= link_to "Informations Générales", "/products/#{@policy_holder.id}"
+            %li= link_to "Bénéficiaires", "/beneficiaries/#{@policy_holder.id}"
+            %li= link_to "Remarques", "#"
+          #other_insurance_products.tab
+            %table{style: "border: 1px solid #ccc"}
+              %thead
+                %th
+                %th Assureur
+                %th Prélèvement
+                %th Date d'expiration
+                %th Type
+                %th
+              %tbody
+                - for insurance_product in @policy_holder.products
+                  %tr{:"data-id" => insurance_product.id}
+                    %td{style: "padding: 2px; width: 40px"}
+                      %a{class: 'remove', title: "Remove insurance product", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent', href: '#'}
+                    %td
+                      %input.cover{type: "text", name: "cover", value: insurance_product.cover, style: "border: 1px solid #efefef"}
+                    %td
+                      %input.premium_amount{type: "text", name: "premium_amount", value: insurance_product.premium_amount, style: "border: 1px solid #efefef"}
+                    %td
+                      %input.expiry_date{type: "text", name: "expiry_date", value: insurance_product.expiry_date ? insurance_product.expiry_date.strftime("%Y-%m-%d") : "", style: "border: 1px solid #efefef"}
+                    %td
+                    %td{style: "padding: 2px; width: 30px"}
+                      %a{class: 'save', title: "Save changes", style: 'display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -2px -19px transparent', href: '#'}
+            .errors{style: "margin-bottom: 12px; display: none"}
+            .toolbar{:style=>"margin-bottom: 10px"}
+              %button.gray-button.add
+                %div{style: "width: 130px"} Add Insurance Product

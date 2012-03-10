@@ -14,7 +14,13 @@ class PolicyHoldersController < ApplicationController
   end
 
   def new
+    @policy_holder = PolicyHolder.create
+    redirect_to "/policy_holders/#{@policy_holder.id}/edit"
+  end
 
+  def comments
+    @policy_holder = PolicyHolder.find(params[:id])
+    @comment = @policy_holder.comments.build
   end
 
   def edit

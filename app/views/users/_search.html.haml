@@ -19,16 +19,16 @@
       = form_for :s, :method => "get" do |f|
         .simple-search
           %label
-            Login
+            Nom d'utilisateur
           = f.text_field :login
           %label
-            Email
+            Adresse Electronique
           = f.text_field :email
           %label
             Role
           = select_tag "s_role", options_for_select([""] + User.new.enums(:role).select_options), :name => "s[role]"
           %label
-            Status
+            Statut
           = select_tag "s_status", options_for_select([""] + User.new.enums(:status).select_options), :name => "s[status]"
         %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
           %div

@@ -2,12 +2,12 @@ require 'enumerated_attribute'
 
 class PolicyHolder < ActiveRecord::Base
   acts_as_commentable
-  validates_presence_of :dob, :names, :gender, :surname, :nationality, :address, :city, :postcode, :email
-  has_many :policies
+  validates_presence_of :dob, :names, :gender, :surname, :nationality, :address, :city, :postcode, :email, :status, :on => :update
+  has_many :beneficiaries
+  enum_attr :status, %w(active blocked), :init => :active, :nil => false
+  accepts_nested_attributes_for :beneficiaries, :reject_if => :all_blank, :allow_destroy => true
   acts_as_commentable
-  accepts_nested_attributes_for :policies
   belongs_to :user
-  has_many :insurance_products
+  has_many :products
   enum_attr :gender, %w(male female), :init => :male, :nil => false
-  has_many :beneficiaries, :through => :policies
 end

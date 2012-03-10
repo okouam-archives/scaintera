@@ -12,12 +12,12 @@
             %thead
               %tr
                 %th ID
-                %th Full Name
-                %th Postcode
-                %th City
-                %th # Beneficiaries
-                %th # Policies
-                %th Date Added
+                %th Nom et Prénoms
+                %th Code Postal
+                %th Ville
+                %th # Bénéficiaires
+                %th Statut
+                %th Date de Demande
                 %th{style: "width: 100px"}
             %tbody
               - for policy_holder in @policy_holders
@@ -28,17 +28,17 @@
                     = link_to policy_holder.names + " " + policy_holder.surname, edit_policy_holder_path(policy_holder)
                   %td= policy_holder.address ? policy_holder.postcode : ""
                   %td= policy_holder.address ? policy_holder.city : ""
-                  %td
-                    = policy_holder.beneficiaries.count
-                  %td
-                    = policy_holder.policies.count
+                  %td= policy_holder.beneficiaries.count
+                  %td= policy_holder.enums(:status).label(policy_holder.status)
                   %td= policy_holder.created_at.strftime("%Y-%m-%d")
                   %td
-                    %form{action: "/policies/new", method: "get"}
-                      %input{type: "hidden", name: "policy_holder_id", value: policy_holder.id}
+                    %form{action: "/policy_holders/#{policy_holder.id}/toggle", method: "post"}
                       %button.gray-button
                         %div
-                          New Policy
+                          - if policy_holder.blocked?
+                            Débloquer
+                          - else
+                            Bloquer
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"

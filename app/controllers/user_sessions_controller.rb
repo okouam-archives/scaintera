@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to policies_url
+      redirect_to policy_holders_url
     else
       render :action => :new, :layout => false
      end

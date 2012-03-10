@@ -1,7 +1,8 @@
 class CreateBeneficiaries < ActiveRecord::Migration
   def change
       create_table :beneficiaries do |t|
-        t.integer :policy_id, :null => false
+        t.enum :category
+        t.integer :policy_holder_id, :null => false
         t.string :relationship
         t.string :names
         t.string :surname

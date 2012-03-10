@@ -2,7 +2,7 @@
   .block_content
     #portlets
       %h1{style: "margin-top: 10px"}
-        Insurance Calculator
+        Calculatrice
       .clear
       %br
       .portlet
@@ -11,10 +11,10 @@
             %thead
               %tr
                 %th
-                %th{style: "width: 440px"} Policy Type
-                %th # Beneficiaries
-                %th Joining Fee
-                %th Premiums
+                %th{style: "width: 440px"} Type de Couverture
+                %th # Bénéficiares
+                %th Frais d'activation
+                %th Prélèvement
             %tfoot
               %tr
                 %td
@@ -29,11 +29,11 @@
             %tbody
         .actions
           %button.blue-button.add
-            %div{style: "width: 100px"}
-              Add Policy
+            %div{style: "width: 120px"}
+              Ajouter Bénéficiare
           %button.blue-button.reset
-            %div{style: "width: 80px"}
-              Reset
+            %div{style: "width: 90px"}
+              Recommencer
 
 :javascript
   $(function() {

@@ -5,6 +5,9 @@ class CreatePolicyHolders < ActiveRecord::Migration
         t.string :surname
         t.string :nationality
         t.enum :gender
+        t.enum :status
+        t.references :user
+        t.string :payment_type
         t.string :address
         t.string :city
         t.string :postcode

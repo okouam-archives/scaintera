@@ -11,13 +11,12 @@
           %table
             %thead
               %tr
-                %th Login
-                %th Email
+                %th Nom d'utilisateur
+                %th Adresse Electronique
                 %th Role
                 %th Last Login
-                %th Status
-                %th # Policies
-                %th Date Added
+                %th Statut
+                %th Date de Création
             %tbody
               - for user in @users
                 %tr
@@ -27,7 +26,6 @@
                   %td= user.enums(:role).label(user.role)
                   %td= user.last_login_at ? user.last_login_at.strftime("%Y-%m-%d") : ""
                   %td= user.enums(:status).label(user.status)
-                  %td= user.policies.count
                   %td= user.created_at.strftime("%Y-%m-%d")
           .clear
           #pagination-wrapper

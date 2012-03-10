@@ -10,6 +10,7 @@ class PolicyHolderSearch
 
   def execute(page, per_page, user)
     query = PolicyHolder.scoped
+    query = query.where("surname is not null")
     query = query.where("names ilike ? OR surname ilike ?", "%#{@name}%", "%#{@name}%") if @name.present?
     query = query.where("names ilike ?", "%#{@names}%") if @names.present?
     query = query.where("surname ilike ?", "%#{@surname}%") if @surname.present?

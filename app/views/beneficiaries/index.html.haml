@@ -6,7 +6,7 @@
       .clear
       %form.search{:method=>"get"}
         %h1
-          Beneficiaries
+          Bénéficiaires
         %input{:type=>"text", :id=>"query", :name=>"s[name]"}
         .aoq-wrapper
           .aoq
@@ -18,16 +18,16 @@
         = form_for :s, :method => "get" do |f|
           .simple-search
             %label
-              Names
+              Prénoms
             = f.text_field :names
             %label
-              Surname
+              Nom
             = f.text_field :surname
             %label
-              Telephone
+              Contact
             = f.text_field :telephone
             %label
-              Date of Birth
+              Date de Naissance
             = f.text_field :dob
           %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
             %div
@@ -42,26 +42,22 @@
           %table
             %thead
               %tr
-                %th Policy Number
-                %th Policy Holder
-                %th Full Name
-                %th Date of Birth
-                %th Telephone
-                %th Relationship
-                %th Date Added
+                %th Numéro de Police
+                %th Assuré
+                %th Noms et Prénoms
+                %th Date de Naissance
+                %th Contact
             %tbody
               - for beneficiary in @beneficiaries
                 %tr
                   %td
-                    = link_to beneficiary.policy.id, policy_path(beneficiary.policy)
+                    = beneficiary.policy_holder.id
                   %td
-                    = link_to beneficiary.policy.policy_holder.names + " " + beneficiary.policy.policy_holder.surname, policy_holder_path(beneficiary.policy.policy_holder)
+                    = link_to beneficiary.policy_holder.names + " " + beneficiary.policy_holder.surname, edit_policy_holder_path(beneficiary.policy_holder)
                   %td
-                    = link_to beneficiary.names + " " + beneficiary.surname, policy_path(beneficiary.policy) + "/beneficiaries"
+                    = link_to beneficiary.names + " " + beneficiary.surname, "/beneficiaries/#{beneficiary.policy_holder.id}"
                   %td= beneficiary.dob.strftime("%Y-%m-%d")
                   %td= beneficiary.telephone
-                  %td= beneficiary.relationship
-                  %td= beneficiary.created_at.strftime("%Y-%m-%d")
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
