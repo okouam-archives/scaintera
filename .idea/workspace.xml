@@ -23,10 +23,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calculator.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="calculator.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="43" selection-start="3549" selection-end="3549" vertical-scroll-proportion="1.4085107">
+            <state line="76" column="0" selection-start="2688" selection-end="2688" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="80" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.css.sass.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.css.sass.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="general.css.scss.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/general.css.scss.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="45" selection-start="1805" selection-end="1805" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buttons.css.sass.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/buttons.css.sass.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-1.3816156">
               <folding />
             </state>
           </provider>
@@ -41,19 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="policy_holder.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/policy_holder.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="62" selection-start="580" selection-end="580" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="beneficiary.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="8" selection-start="303" selection-end="566" vertical-scroll-proportion="0.0">
+            <state line="0" column="110" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -73,9 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/policy_holders/_comments.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/users/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/general.css.scss.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20120102210750_create_beneficiaries.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20120109195446_create_products.rb" />
         <option value="$PROJECT_DIR$/app/models/beneficiary.rb" />
@@ -89,6 +113,9 @@
         <option value="$PROJECT_DIR$/app/views/users/edit.html.haml" />
         <option value="$PROJECT_DIR$/app/views/calculators/show.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/general.css.scss.erb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/buttons.css.sass.erb" />
       </list>
     </option>
   </component>
@@ -910,34 +937,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120109195446_create_products.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="25" selection-start="114" selection-end="121" vertical-scroll-proportion="0.07520892">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="76" selection-start="2700" selection-end="2700" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policy_holders/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/policy_holders/_products.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="57" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.8022284">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/policy_holders/edit.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="10" selection-start="403" selection-end="499" vertical-scroll-proportion="0.0">
@@ -1001,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="8" selection-start="303" selection-end="566" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="49" selection-start="156" selection-end="156" vertical-scroll-proportion="0.0">
@@ -1017,7 +1009,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/src/views/calculator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="43" selection-start="3549" selection-end="3549" vertical-scroll-proportion="1.4085107">
+        <state line="76" column="0" selection-start="2688" selection-end="2688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="110" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="80" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/layout.css.sass.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/general.css.scss.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="45" selection-start="1805" selection-end="1805" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/buttons.css.sass.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="-1.3816156">
           <folding />
         </state>
       </provider>

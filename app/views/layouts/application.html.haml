@@ -12,18 +12,14 @@
       .wrapper
         .menu
           %ul#nav
-            %li
-              = image_tag "wallet_icon&24w.png"
+            %li.calculator
               = link_to "Calculatrice", calculator_path
-            %li
-              = image_tag "user_icon&24w.png"
+            %li.policy_holders
               = link_to "Assurés", policy_holders_path
-            %li
-              = image_tag "users_icon&24w.png"
+            %li.beneficiaries
               = link_to "Bénéficiaires", beneficiaries_path
             - if @current_user.role == :administrator
-              %li
-                = image_tag "wrench_icon&24w.png"
+              %li.users
                 = link_to "Utilisateurs", users_path
           %p.user
             = link_to "Logout", user_sessions_path, :method => :delete, :confirm => "Are you sure you want to logout?"
