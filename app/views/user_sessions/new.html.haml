@@ -7,22 +7,23 @@
   %body
     #hld
       .wrapper{:style=>"padding-top: 150px"}
-        .block.small.center.login{:style=>"background-color: white; width: 570px; background-image: none; border: 1px solid #ccc; margin-top: 0"}
+        .block.small.center.login{:style=>"background-color: white; width: 460px; background-image: none; border-radius: 0; border: 3px solid #232323; margin-top: 0"}
           = form_for @user_session do |f|
             %div{:style=>"float: left; width: 100px; height: 45px"}
               = image_tag "logo.png"
-            %div{:style=>"float: left; width: 455px"}
+            %div{:style=>"float: left; width: 300px"}
               - if f.object.errors.any?
                 %ul
                   - f.object.errors.full_messages.each do |msg|
                     %li.error_message= msg
-              %div{:style=>"float: left; width: 200px"}
+              %div{:style=>"float: left; width: 150px"}
                 = f.label :login
-                = f.text_field :login, :class => "text", :style=>"width: 170px"
-              %div{:style=>"float: left; width: 200px"}
+                = f.text_field :login, :class => "text", :style=>"width: 130px"
+              %div{:style=>"float: left; width: 150px"}
                 = f.label :password
-                = f.password_field :password, :class => "text", :style=>"width: 170px"
-              = f.submit "Login", :class => "submit"
+                = f.password_field :password, :class => "text", :style=>"width: 130px"
+            %button.gray-button.add{style: "float: right; display: inline-block; margin-top: 20px"}
+              %div{style: "width: 40px"} Login
           .clear
           %br
 
