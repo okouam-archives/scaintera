@@ -36,7 +36,11 @@ class PolicyHoldersController < ApplicationController
       flash[:message] = policy_holder.errors.full_messages
       flash[:message_type] = :errors
     end
-    redirect_to edit_policy_holder_path(params[:id])
+    if params[:page] == "index"
+      redirect_to policy_holders_path
+    else
+      redirect_to edit_policy_holder_path(params[:id])
+    end
   end
 
   def create

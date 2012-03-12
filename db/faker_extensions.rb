@@ -4,15 +4,15 @@ module Faker
         def status
           %w(active blocked).sample(1)[0]
         end
-        def category
-          %w(group_complete group_limited senior_group_complete senior_group_limited).sample(1)[0]
+        def plan
+          %w(young_active young_semi_active senior_active senior_semi_active).sample(1)[0]
         end
       end
   end
-  class InsuranceProduct
+  class Product
     class << self
-      def cover
-        ["House Insurance", "3rd Party Insurance", "Work Insurance", "Retirement Pension"].sample(1)[0]
+      def category
+        %w(maladie vie auto habitation voyage protection_revenue funeraire).sample(1)[0]
       end
     end
   end
@@ -20,9 +20,6 @@ module Faker
     class << self
       def nationality
         ['Ivorian', 'British', 'French', 'American', 'Russian', 'Japanese', 'Dutch'].sample(1)[0]
-      end
-      def relationship
-        ['Daughter', 'Son', 'Cousin', 'Brother-in-law', 'Sister-in-law', 'Uncle', 'Aunt', 'Nephew', 'Niece'].sample(1)[0]
       end
       def dob
         DateTime.now << ((Random.rand(300) * 12) + (12 * 20))

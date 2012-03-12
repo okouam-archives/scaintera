@@ -7,10 +7,10 @@ App.Views.Calculator = Backbone.View.extend({
       </td> \
       <td> \
         <select class='policy_type' style='width: 350px'> \
-          <option value='0'>ACTIVE</option> \
-          <option value='1'>MI-ACTIVE</option> \
-          <option value='2'>SAGESSE</option> \
-          <option value='3'>MI-SAGESSE</option> \
+          <option value='0'>Personne de 0 a 55, active</option> \
+          <option value='1'>Personne de 0 a 55, mi-active</option> \
+          <option value='2'>Personne de 56 a 70, active</option> \
+          <option value='3'>Personne de 56 a 70, mi-active</option> \
         </select> \
       </td> \
       <td> \
@@ -25,10 +25,10 @@ App.Views.Calculator = Backbone.View.extend({
     </tr>",
 
   pricing: [
-    [{joining_fee: 123.75, premium: 31}, {joining_fee: 178.75, premium: 45}, {joining_fee: 233.75, premium: 59}, {joining_fee: 288.75, premium: 73}],
-    [{joining_fee: 96, premium: 25}, {joining_fee: 151.25, premium: 38}, {joining_fee: 206.25, premium: 52}, {joining_fee: 261.25, premium: 66}],
-    [{joining_fee: 146.26, premium: 37}, {joining_fee: 187.50, premium: 47}, {joining_fee: 237.50, premium: 60}, {joining_fee: 316.25, premium: 80}],
-    [{joining_fee: 123.75, premium: 31}, {joining_fee: 178.75, premium: 45}, {joining_fee: 233.75, premium: 59}, {joining_fee: 288.75, premium: 73}]
+    {joining_fee: 200, premium: 77},
+    {joining_fee: 200, premium: 67},
+    {joining_fee: 225, premium: 95},
+    {joining_fee: 225, premium: 85}
   ],
 
   events: {
@@ -43,23 +43,24 @@ App.Views.Calculator = Backbone.View.extend({
     var row = this.findRow(evt);
     var numBeneficiaries = this.findBeneficiaries(row);
     var pricing = this.findPricing(row, numBeneficiaries);
-    this.displayPremium(row, pricing.premium, numBeneficiaries);
-    this.displayJoiningFee(row, pricing.joining_fee, numBeneficiaries);
+    this.displayPremium(row, pricing.premium * numBeneficiaries);
+    this.displayJoiningFee(row, pricing.joining_fee * numBeneficiaries);
     this.recalculate();
   },
 
   changePolicyType: function(evt) {
     var row = this.findRow(evt);
     var numBeneficiaries = this.findBeneficiaries(row);
-    var pricing = this.findPricing(row, numBeneficiaries);
-    this.displayPremium(row, pricing.premium);
-    this.displayJoiningFee(row, pricing.joining_fee);
+    var pricing = this.findPricing(row);
+    this.displayPremium(row, pricing.premium * numBeneficiaries);
+    this.displayJoiningFee(row, pricing.joining_fee * numBeneficiaries);
     this.recalculate();
   },
 
   displayPremium: function(row, premium) {
     var cell = row.find(".premium");
-    cell.text(accounting.formatMoney(premium, { symbol: "GBP",  format: "%v %s" }));
+    var amount = accounting.formatMoney(premium, { symbol: "GBP",  format: "%v %s" });
+    cell.text(amount);
   },
 
   findBeneficiaries: function(row) {
@@ -69,7 +70,7 @@ App.Views.Calculator = Backbone.View.extend({
   add: function() {
     var row = $("table > tbody").append(_.template(this.TEMPLATE)).find("tr:last");
     $('.block table tr:odd').css('background-color', '#fbfbfb');
-    var pricing = this.pricing[0][0];
+    var pricing = this.pricing[0];
     this.displayPremium(row, pricing.premium);
     this.displayJoiningFee(row, pricing.joining_fee);
     this.recalculate();
@@ -84,9 +85,9 @@ App.Views.Calculator = Backbone.View.extend({
     return $(evt.currentTarget).parents("tr");
   },
 
-  findPricing: function(row, num_beneficiaries) {
+  findPricing: function(row) {
     var id = row.find("select.policy_type").val();
-    return this.pricing[id][num_beneficiaries - 1];
+    return this.pricing[id];
   },
 
   remove: function(evt) {

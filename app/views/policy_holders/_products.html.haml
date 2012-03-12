@@ -3,7 +3,7 @@
     %td{style: 'padding: 2px; width: 40px'}
       %a.remove{href: '#'}
     %td
-      %input{name: 'policy_holder[products_attributes][0][cover]', type: 'text', :style=>"width: 150px"}
+      %input{name: 'policy_holder[products_attributes][0][insurer]', type: 'text', :style=>"width: 150px"}
     %td
       %input{name: 'policy_holder[products_attributes][0][premium_amount]', type: 'text', :style=>"width: 100px"}
     %td
@@ -33,7 +33,7 @@
             = ff.hidden_field :id
             %a{class: 'remove', title: "Remove insurance product", href: '#'}
           %td
-            = ff.text_field :cover
+            = ff.text_field :insurer
           %td
             = ff.text_field :premium_amount, style: "width: 100px"
           %td

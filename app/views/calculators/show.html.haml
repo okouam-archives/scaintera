@@ -4,13 +4,13 @@
       %span{style: "float: right; margin-right: 30px"}
         = image_tag "logo.png", style: "width: 50px"
       .clear
-      .portlet
+      .portlet{style: "border-top: 0; border-left: 0; border-right: 0; border-bottom: 0"}
         .portlet-content.nopadding
-          %table
+          %table{style: "width: 792px"}
             %thead
               %tr
                 %th
-                %th{style: "width: 440px"} Type de Couverture
+                %th{style: "width: 300px"} Type de Plan
                 %th # Bénéficiares
                 %th Frais d'activation
                 %th Prélèvement
@@ -36,5 +36,5 @@
 
 :javascript
   $(function() {
-    new App.Views.Calculator({el: "#calculator"});
+    new App.Views.Calculator({el: ".portlet"});
   })

@@ -62,20 +62,21 @@ end
 1..60.times do
   Beneficiary.create!({
     policy_holder: find_policy_holder,
-    category: Faker::Policy.category,
+    plan: Faker::Policy.plan,
     names: Faker::Name.first_name,
     telephone: Faker::PhoneNumber.phone_number,
     surname: Faker::Name.last_name,
-    dob: Faker::Person.dob,
-    relationship: Faker::Person.relationship
+    dob: Faker::Person.dob
   })
 end
 
 1..40.times do
   Product.create!({
     policy_holder: find_policy_holder,
-    cover: Faker::InsuranceProduct.cover,
-    expiry_date: Faker::Name.last_name,
+    insurer: Faker::Company.name,
+    category: Faker::Product.category,
+    expiry_date: Date.now.add_days + (Random.rand(100) + 100),
+    category: Faker::Product.category,
     premium_amount: Random.rand(100) + 10
   })
 end

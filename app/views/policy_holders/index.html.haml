@@ -31,12 +31,15 @@
                   %td= policy_holder.enums(:status).label(policy_holder.status)
                   %td= policy_holder.created_at.strftime("%Y-%m-%d")
                   %td
-                    %form{action: "/policy_holders/#{policy_holder.id}/toggle", method: "post"}
+                    = form_for policy_holder,:url => "/policy_holders/#{policy_holder.id}", :method => :put do |f|
+                      %input{type: "hidden", value: "index", name: "page"}
                       %button.gray-button
                         %div
                           - if policy_holder.blocked?
+                            = f.hidden_field :status, :value =>"active"
                             Débloquer
                           - else
+                            = f.hidden_field :status, :value =>"blocked"
                             Bloquer
           .clear
           #pagination-wrapper

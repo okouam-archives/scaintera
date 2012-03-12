@@ -14,9 +14,8 @@
 ActiveRecord::Schema.define(:version => 20120111150046) do
 
   create_table "beneficiaries", :force => true do |t|
-    t.string   "category"
+    t.string   "plan"
     t.integer  "policy_holder_id", :null => false
-    t.string   "relationship"
     t.string   "names"
     t.string   "surname"
     t.string   "telephone"
@@ -62,9 +61,10 @@ ActiveRecord::Schema.define(:version => 20120111150046) do
   end
 
   create_table "products", :force => true do |t|
-    t.string   "cover",            :null => false
+    t.string   "insurer",          :null => false
     t.datetime "expiry_date"
     t.decimal  "premium_amount"
+    t.string   "category"
     t.integer  "policy_holder_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
