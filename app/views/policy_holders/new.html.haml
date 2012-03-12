@@ -5,12 +5,7 @@
     #portlets
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
-          %h2
-            - if @policy_holder.names.blank? && @policy_holder.surname.blank?
-              Nouveau Assuré
-            - else
-              = @policy_holder.names + " " + @policy_holder.surname
-          = form_for @policy_holder,:url => "/policy_holders/#{@policy_holder.id}", :method => :put do |f|
+          = form_for @policy_holder,:url => "/policy_holders", :method => :post do |f|
             - if flash[:message] && flash[:message_type] == :errors
               .alert-error.alert
                 = flash[:message].join(", ")

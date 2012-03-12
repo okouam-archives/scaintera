@@ -14,8 +14,8 @@ class PolicyHoldersController < ApplicationController
   end
 
   def new
-    @policy_holder = PolicyHolder.create
-    redirect_to "/policy_holders/#{@policy_holder.id}/edit"
+    @policy_holder = PolicyHolder.new
+    @policy_holder.user = current_user
   end
 
   def comments
@@ -40,7 +40,17 @@ class PolicyHoldersController < ApplicationController
   end
 
   def create
-
+    @policy_holder = PolicyHolder.new(params[:policy_holder])
+    @policy_holder.user = current_user
+    if @policy_holder.save
+      flash[:message] = ["The policy has been successfully created."]
+      flash[:message_type] = :notifications
+      redirect_to edit_policy_holder_path(@policy_holder.id)
+    else
+      flash[:message] = @policy_holder.errors.full_messages
+      flash[:message_type] = :errors
+      render :new
+    end
   end
 
 end

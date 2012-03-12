@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration
         t.string :cover, :null => false
         t.datetime :expiry_date
         t.decimal :premium_amount
+        t.enum :category
         t.integer :policy_holder_id, :null => false
         t.timestamps
       end

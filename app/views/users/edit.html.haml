@@ -9,7 +9,7 @@
       .portlet{style: "border-top: 0; border-left: 0; border-right: 0"}
         .portlet-content.nopadding
           %br
-          .tab{style: "border-top: 1px solid #ccc"}
+          .tab
             = form_for @user do |f|
               = render :partial => "users/form", locals: {f: f}
               .actions

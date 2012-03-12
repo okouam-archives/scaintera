@@ -1,63 +1,33 @@
 = content_for :title, "Beneficiary Search"
 
-= content_for :search do
-  #search-bar
-    .wrapper
-      .clear
-      %form.search{:method=>"get"}
-        %h1
-          Bénéficiaires
-        %input{:type=>"text", :id=>"query", :name=>"s[name]"}
-        .aoq-wrapper
-          .aoq
-        %button.search-button
-          %div
-            = image_tag "search_white.png"
-      #advanced
-        %a.close-button
-        = form_for :s, :method => "get" do |f|
-          .simple-search
-            %label
-              Prénoms
-            = f.text_field :names
-            %label
-              Nom
-            = f.text_field :surname
-            %label
-              Contact
-            = f.text_field :telephone
-            %label
-              Date de Naissance
-            = f.text_field :dob
-          %button.search-button{:style=>"margin-top: 15px; margin-left: -3px"}
-            %div
-              = image_tag "search_white.png"
-        .clear
-
 .block
   .block_content
     #portlets
+      %span.logo
+        = image_tag "logo.png", style: "width: 50px"
+      .clear
       .portlet
         .portlet-content.nopadding
+          %div
+            = render :partial => "search"
           %table
             %thead
               %tr
-                %th Numéro de Police
                 %th Assuré
                 %th Noms et Prénoms
                 %th Date de Naissance
                 %th Contact
+                %th Plan
             %tbody
               - for beneficiary in @beneficiaries
                 %tr
                   %td
-                    = beneficiary.policy_holder.id
-                  %td
                     = link_to beneficiary.policy_holder.names + " " + beneficiary.policy_holder.surname, edit_policy_holder_path(beneficiary.policy_holder)
                   %td
-                    = link_to beneficiary.names + " " + beneficiary.surname, "/beneficiaries/#{beneficiary.policy_holder.id}"
+                    = beneficiary.names + " " + beneficiary.surname
                   %td= beneficiary.dob.strftime("%Y-%m-%d")
                   %td= beneficiary.telephone
+                  %td
           .clear
           #pagination-wrapper
             = will_paginate @policies, :params => @params, :outer_window => 1, :inner_window => 1, :class => "paggination"
@@ -66,5 +36,5 @@
             .clear
 :javascript
   $(function() {
-    new App.Views.BeneficiarySearch({el: "#search-bar"});
+    new App.Views.Search({el: "#search-bar"});
   })

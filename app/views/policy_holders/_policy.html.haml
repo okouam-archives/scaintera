@@ -1,0 +1,13 @@
+%fieldset
+  %legend
+    Couverture
+  .entry{style: "margin-top: 0"}
+    %label Agent
+    = @policy_holder.user.login
+  - if @policy_holder.persisted?
+    .entry
+      %label Date Created
+      = @policy_holder.created_at.strftime("%Y-%m-%d")
+    .entry
+      %label Status
+      = f.enum_select :status, {}, {:style => "width: 100px"}

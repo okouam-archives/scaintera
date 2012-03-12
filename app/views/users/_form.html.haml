@@ -1,22 +1,23 @@
-.entry
-  %label Login
-  = f.text_field :login
-.entry
-  %label Email
-  = f.text_field :email
-.entry
-  %label Role
-  = f.enum_select :role
-.entry
-  %label Status
-  = f.enum_select :status
-.entry
-  %label Password
-  = f.password_field :password
-.entry
-  %label Password Confirmation
-  = f.password_field :password_confirmation
-.clear
-- unless @user.errors.empty?
-  .errors
-    = @user.errors.full_messages
+%fieldset
+  .entry
+    %label Login
+    = f.text_field :login
+  .entry
+    %label Email
+    = f.text_field :email
+  .entry
+    %label Role
+    = f.enum_select :role
+  .entry
+    %label Status
+    = f.enum_select :status
+  .entry
+    %label Password
+    = f.password_field :password
+  .entry
+    %label Password Confirmation
+    = f.password_field :password_confirmation
+  .clear
+  - unless @user.errors.empty?
+    .errors
+      = @user.errors.full_messages

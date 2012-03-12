@@ -6,8 +6,13 @@
 .block
   .block_content
     #portlets
+      %span.logo
+        = image_tag "logo.png", style: "width: 50px"
+      .clear
       .portlet
         .portlet-content.nopadding
+          %div
+            = render :partial => "search"
           %table
             %thead
               %tr
@@ -35,5 +40,5 @@
             .clear
 :javascript
   $(function() {
-    new App.Views.UserSearch({el: "#search-bar"});
+    new App.Views.Search({el: "#search-bar"});
   })

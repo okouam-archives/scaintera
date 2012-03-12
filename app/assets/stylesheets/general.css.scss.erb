@@ -1,126 +1,65 @@
 * { padding:0; margin:0; }
 
-body {
-	background: #fbfbfb url(<%= asset_path "bg.jpg" %>) 0 0 repeat;
-	font-family: "Lucida Grande", Verdana, sans-serif;
-	font-size: 12px;
-	color: #666;
-	line-height: 1.4em;
-	}
-
+body {font-family: "Lucida Grande", Verdana, sans-serif; font-size: 12px; line-height: 1.4em; background-color: #333}
 :focus { -moz-outline-style: none; }
 
-p { padding-bottom: 15px; }
-img, a img { border: 0; }
-ul li { list-style: none; }
-.clear { clear: both; }
+p {padding-bottom: 15px}
+img, a img {border: 0}
+ul li {list-style: none}
+.clear {clear: both}
 
-a {
-	color: #006699;
-	text-decoration: none;
-	outline: none;
-	}
+a {color: #006699; text-decoration: none; outline: none}
+a:hover {color: #ec8526; text-decoration: none}
 
-a:hover {
-	color: #ec8526;
-	text-decoration: none;
-	}
+#page {width: auto; margin-left: 159px}
+#footer p {margin-right:40px}
+.wrapper {width: 100%}
 
-#hld {
-	background: url(<%= asset_path "hld.jpg" %>) 0 0 repeat-x;
-	min-height: 402px;
-	}
+.menu {width: 150px; float: left; padding-left: 10px}
+.menu li {padding-top: 5px}
+.menu li img {display: inline; margin-right: 6px; position: relative; top: 6px}
+.menu .user {margin-top: 15px; font-weight: bold; margin-left: 35px}
 
-.wrapper {
-	width:960px;
-	margin:0 auto;
- position: relative;
-	}
+.block {padding-bottom: 5px; padding: 10px 10px 0; -webkit-border-radius: 0 0 0 10px;	-moz-border-radius: 0 0 0 10px;	border-radius: 0 0 0 10px}
+.block form p {overflow: hidden; clear: both}
 
+label {font-family: "Lucida Grande", Verdana, sans-serif;
+	font-size: 11px; font-weight: bold; color: #555;	margin-right: 10px; vertical-align: middle}
 
-/* Blocks */
+fieldset {border: 1px solid #ddd; padding: 10px; max-width: 800px; margin-top: 20px}
+fieldset legend {font-weight: bold; font-size: 14px}
+label {width: 190px; display: inline-block}
+.entry {margin-top: 10px}
 
-.block {
-	padding-bottom: 5px;
-	margin-bottom: 25px;
-	clear: both;
-	padding: 10px 10px 0;
-	width: 940px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	}
+span.logo {float: right; margin-right: 30px}
 
-/* Forms */
+.policy_holders.index .portlet {margin-top: -120px}
+.beneficiaries.index .portlet {margin-top: -120px}
+.users.index .portlet {margin-top: -120px}
+.calculators.show .portlet {margin-top: -120px}
 
-.block form p {
-	overflow: hidden;
-	clear: both;
-	}
+table.input {border: 1px dotted #ccc}
+table.input td {border-top: 1px dotted #ccc}
+table.input input, table.input select {border: 1px solid #efefef}
+table.input a.remove {display: block; height: 25px; width: 24px; background: url(https://ssl.gstatic.com/ui/v1/icons/mail/sprite_black2.png) no-repeat -61px -41px transparent}
+#search-bar {padding-top: 10px}
+#search-bar form.search {margin-left: 10px}
 
-label {
-	font-family: "Lucida Grande", Verdana, sans-serif;
-	font-size: 11px;
-	font-weight: bold;
-	color: #555;
-	margin-right: 10px;
-	vertical-align: middle;
-	}
+input[type='text'], input[type='password'], textarea, select  {
+  border: 1px solid #bbb; color: #434343; padding: 4px; -webkit-border-radius: 3px;
+  -moz-border-radius: 3px; border-radius: 3px;
+}
+input[type='text'], input[type='password'] {width: 200px}
+input.text.date_picker {width: 100px}
+select {background: #fefefe; font-family: "Lucida Grande", Verdana; padding: 2px; outline: none; vertical-align: middle}
+textarea {width: 409px; height: 140px; background: #fefefe; font-family: "Lucida Grande", Verdana; outline: none}
+input.radio, input.checkbox {vertical-align: middle}
 
-select {
-	background: #fefefe;
-	border: 1px solid #bbb;
-	font-family: "Lucida Grande", Verdana, sans-serif;
-	color: #333;
-	padding: 2px;
-  font-size: 11px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	outline: none;
-	vertical-align: middle;
-	}
+.alert {border-radius: 4px; width: 773px; text-shadow: 0 1px 0 rgba(255, 255, 0, 0.5); padding: 8px 35px 8px 14px; font-size: 13px; line-height: 18px; margin-top: 15px}
+.alert-error {background-color: #F2DEDE; border-color: #EED3D7; color: #B94A48}
+.alert-info {background-color: #D9EDF7; border-color: #BCE8F1; color: #3A87AD}
 
-input[type='text'], input[type='email'], input[type='tel'], input[type='url'], input[type='password'] {
-	width: 409px;
-	border: 1px solid #bbb;
-	font-size: 11px;
-	color: #333;
-	padding: 4px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	}
-
-input.text.medium { width: 600px; }
-input.text.big { width: 904px; }
-input.text.date_picker { width: 100px; }
-
-textarea {
-	width: 409px;
-	height: 140px;
-	background: #fefefe;
-	border: 1px solid #bbb;
-	font-family: "Lucida Grande", Verdana, sans-serif;
-	font-size: 11px;
-	color: #333;
-  padding: 4px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	outline: none;
-	}
-
-input.radio, input.checkbox {
-  vertical-align: middle;
-	}
+button {cursor: pointer}
 
 .block.small.center.login { margin-top: 100px; 	float: none; margin: 0 auto;}
-
-.actions {
-    background: none repeat scroll 0 0 #F5F5F5;
-    border-radius: 0 0 3px 3px;
-    border-top: 1px solid #DDDDDD;
-    margin-top: 18px;
-    padding: 17px 20px 18px 10px;
-}
+.actions {background: none repeat scroll 0 0 #F5F5F5; border-radius: 0 0 3px 3px; border-top: 1px solid #DDDDDD; margin-top: 18px; padding: 17px 20px 18px 10px; width: 792px}

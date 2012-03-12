@@ -1,0 +1,41 @@
+%fieldset
+  %legend Details
+  %div.details{style: "float: left; width: 360px"}
+    .entry{style: "margin-top: 0"}
+      %label Prénoms
+      = f.text_field :names
+    .entry
+      %label Nom
+      = f.text_field :surname
+    .entry
+      %label Date de Naissance
+      = f.text_field :dob, :class => "date_picker", :value => (@policy_holder.dob.blank? ? "" : @policy_holder.dob.strftime("%Y-%m-%d"))
+    .entry
+      %label Nationalité
+      = f.text_field :nationality
+    .entry
+      %label Sexe
+      = f.enum_select :gender , {}, :style => "width: 210px"
+    .entry{style: "margin-top: 15px"}
+      %label{style: "width: 320px"} Locataire ou propriétaire de bien immobilier ?
+      = f.check_box :rents_property, :style => "position: relative; top: 3px; left: -20px"
+  %div.address{style: "float: left; width: 400px; margin-left: 40px"}
+    .entry{style: "margin-top: 0"}
+      %label Adresse
+      = f.text_field :address
+    .entry
+      %label Ville
+      = f.text_field :city
+    .entry
+      %label Code Postale
+      = f.text_field :postcode
+    .entry
+      %label Téléphone Domicile
+      = f.text_field :home_phone
+    .entry
+      %label Téléphone Mobile
+      = f.text_field :mobile_phone
+    .entry
+      %label Addresse Electronique
+      = f.text_field :email
+  .clear

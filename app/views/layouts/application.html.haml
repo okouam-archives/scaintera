@@ -9,29 +9,29 @@
     = yield :javascripts
   %body{class: "#{controller.controller_name} #{controller.action_name}"}
     #hld
-      #header
-        .wrapper
-          %h1= link_to "SCA INTER A", policy_holders_path
+      .wrapper
+        .menu
           %ul#nav
             %li
+              = image_tag "wallet_icon&24w.png"
               = link_to "Calculatrice", calculator_path
             %li
+              = image_tag "user_icon&24w.png"
               = link_to "Assurés", policy_holders_path
             %li
+              = image_tag "users_icon&24w.png"
               = link_to "Bénéficiaires", beneficiaries_path
             - if @current_user.role == :administrator
               %li
+                = image_tag "wrench_icon&24w.png"
                 = link_to "Utilisateurs", users_path
           %p.user
-            = link_to @current_user.login, "#"
-            |
             = link_to "Logout", user_sessions_path, :method => :delete, :confirm => "Are you sure you want to logout?"
-      = yield :search
-      .wrapper
-        = yield
-        #footer
-          %p.left
-            = link_to "SCA INTER A", "http://www.sca-intera.net"
-          %p.right
-            Powered by
-            = link_to "Codeifier Labs", "#"
+        #page
+          = yield
+          #footer
+            %p
+              Powered by
+              = link_to "Codeifier Labs", "#"
+        .clear
+      .clear

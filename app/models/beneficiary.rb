@@ -2,14 +2,14 @@ require 'enumerated_attribute'
 
 class Beneficiary < ActiveRecord::Base
   belongs_to :policy_holder
-  validates_presence_of :surname, :names, :relationship, :dob, :category
+  validates_presence_of :surname, :names, :dob, :plan
 
-  enum_attr :category, %w(group_complete group_limited senior_group_complete senior_group_limited),
-            :init => :group_complete, :nil => false do
-              label group_complete: "Groupe - Garantie Complete"
-              label group_limited: "Groupe - Garantie Limitee"
-              label senior_group_complete: "Groupe Sagesse - Garantie Complete"
-              label senior_group_limited: "Groupe Sagesse - Garantie Limitee"
+  enum_attr :plan, %w(young_active young_semi_active senior_active senior_semi_active),
+            :init => :young_active, :nil => false do
+              label young_active: "Personne de 0 a 55, active"
+              label young_semi_active: "Personne de 0 a 55, mi-active"
+              label senior_active: "Personne de 56 a 70, active"
+              label senior_semi_active: "Personne de 56 a 70, mi-active"
   end
 
   def full_name

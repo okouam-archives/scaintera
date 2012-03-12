@@ -1,0 +1,20 @@
+%fieldset
+  %legend Commentaires
+  %ul.comments
+    - @policy_holder.comments.each do |comment|
+      - if comment.persisted? && !comment.comment.blank?
+        %li
+          .authorship
+            = comment.created_at.strftime("%Y-%m-%d")
+            %b
+              = comment.user.login
+          .comment
+            = comment.comment
+  %textarea{name: "policy_holder[comments_attributes][#{@policy_holder.comments.count}][comment]"}
+  %input{type: "hidden", name: "policy_holder[comments_attributes][#{@policy_holder.comments.count}][user_id]", value: current_user.id}
+  %input{type: "hidden", name: "policy_holder[comments_attributes][#{@policy_holder.comments.count}][commentable_type]", value: 'PolicyHolder'}
+  %input{type: "hidden", name: "policy_holder[comments_attributes][#{@policy_holder.comments.count}][title]", value: ''}
+
+:css
+  .comments {float: right; width: 360px}
+  .comments li {margin-bottom: 10px}

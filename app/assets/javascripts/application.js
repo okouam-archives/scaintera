@@ -4,14 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
-//= require ./setup
+
 //= require_tree ./support
 //= require_tree ./libraries
-//= require_tree ./src/helpers
-//= require_tree ./src/views
-
-$(function () {
-  $('#header #nav li:last').addClass('nobg');
-  $('.block table tr:odd').css('background-color', '#fbfbfb');
-});
-
+//= require_tree ./src

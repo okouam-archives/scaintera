@@ -1,15 +1,11 @@
-#search-bar{style: ""}
-  %form.search{:method=>"get"}
+#search-bar{style: "padding-top: 10px"}
+  %form.search{:method=>"get", style: "margin-left: 10px"}
     %input{:type=>"text", :id=>"query", :name=>"s[name]"}
     .aoq-wrapper
       .aoq
     %button.search-button
       %div
         = image_tag "search_white.png"
-  %form.new{:method=>"get", :action => "/policy_holders/new"}
-    %button.red-button
-      %div
-        Nouvelle Couverture
   #advanced
     %a.close-button
     = form_for :s, :method => "get" do |f|
@@ -21,8 +17,8 @@
           Nom
         = f.text_field :surname
         %label
-          Code Postal
-        = f.text_field :postcode
+          Contact
+        = f.text_field :telephone
         %label
           Date de Naissance
         = f.text_field :dob

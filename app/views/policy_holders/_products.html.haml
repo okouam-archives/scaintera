@@ -1,0 +1,45 @@
+%script#product-template{type: "text/x-handlebars-template"}
+  %tr
+    %td{style: 'padding: 2px; width: 40px'}
+      %a.remove{href: '#'}
+    %td
+      %input{name: 'policy_holder[products_attributes][0][cover]', type: 'text', :style=>"width: 150px"}
+    %td
+      %input{name: 'policy_holder[products_attributes][0][premium_amount]', type: 'text', :style=>"width: 100px"}
+    %td
+      %input.date_picker{name: 'policy_holder[products_attributes][0][expiry_date]', type: 'text', :style=>"width: 130px"}
+    %td
+      %select{name: 'policy_holder[products_attributes][0][category]', :style=>"width: 160px"}
+        %option{value: "maladie"} Maladie
+        %option{value: "vie"} Vie
+        %option{value: "auto"} Auto
+        %option{value: "habitation"} Habitation
+        %option{value: "voyage"} Voyage
+        %option{value: "protection_revenue"} Protection Revenue
+        %option{value: "funeraire"} Funéraire
+%fieldset#products
+  %legend Information Générale
+  %table.input
+    %thead
+      %th
+      %th Assureur
+      %th Prélèvement
+      %th Date d'expiration
+      %th Type
+    %tbody
+      = f.fields_for :products do |ff|
+        %tr
+          %td{style: "padding: 2px; width: 20px"}
+            = ff.hidden_field :id
+            %a{class: 'remove', title: "Remove insurance product", href: '#'}
+          %td
+            = ff.text_field :cover
+          %td
+            = ff.text_field :premium_amount, style: "width: 100px"
+          %td
+            = ff.text_field :expiry_date, style: "width: 160px", :class => "date_picker"
+          %td
+            = ff.enum_select :category
+  .toolbar{:style=>"margin-bottom: 10px"}
+    %button.gray-button.add
+      %div{style: "width: 130px"} Add Insurance Product

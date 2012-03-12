@@ -1,0 +1,52 @@
+%script#beneficiary-template{type: "text/x-handlebars-template"}
+  %tr
+    %td{style: 'padding: 2px; width: 40px'}
+      %a.remove{title: 'Remove beneficiary', href: '#'}
+    %td
+      %input{name: 'policy_holder[beneficiaries_attributes][0][names]', type: 'text', :style => "width: 100px"}
+    %td
+      %input{name: 'policy_holder[beneficiaries_attributes][0][surname]', type: 'text', :style => "width: 100px"}
+    %td
+      %input{name: 'policy_holder[beneficiaries_attributes][0][telephone]', type: 'text', :style => "width: 100px"}
+    %td
+      %input.date_picker{name: 'policy_holder[beneficiaries_attributes][0][dob]', type: 'text', :style => "width: 100px"}
+    %td
+      %select{name: 'policy_holder[beneficiaries_attributes][0][plan]'}
+        %option{value: "young_active", selected: "selected"}
+          Personne de 0 a 55, active
+        %option{value: "young_semi_active"}
+          Personne de 0 a 55, mi-active
+        %option{value: "senior_active"}
+          Personne de 56 a 70, active
+        %option{value: "senior_semi_active"}
+          Personne de 56 a 70, mi-active
+
+%fieldset#beneficiaries
+  %legend Beneficiaries
+  %table.input
+    %thead
+      %th
+      %th Prénoms
+      %th Nom
+      %th Contact
+      %th Date de Naissance
+      %th Plan
+    %tbody
+      = f.fields_for :beneficiaries do |ff|
+        %tr
+          = ff.hidden_field :id
+          %td{style: "padding: 2px; width: 40px"}
+            %a.remove{title: "Remove beneficiary", href: '#'}
+          %td
+            = ff.text_field :names, :style => "width: 100px"
+          %td
+            = ff.text_field :surname, :style => "width: 100px"
+          %td
+            = ff.text_field :telephone, :style => "width: 100px"
+          %td
+            = ff.text_field :dob, :style => "width: 100px", :class => "date_picker"
+          %td
+            = ff.enum_select :plan
+  .toolbar{:style=>"margin-bottom: 10px"}
+    %button.gray-button.add
+      %div{style: "width: 130px"} Ajouter Bénéficiaire

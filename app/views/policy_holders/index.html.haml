@@ -1,17 +1,18 @@
 = content_for :title, "Policy Search"
 
-= content_for :search do
-  =render :partial => "search"
-
 .block
   .block_content
     #portlets
+      %span{style: "float: right; margin-right: 30px"}
+        = image_tag "logo.png", style: "width: 50px"
+      .clear
       .portlet
         .portlet-content.nopadding
+          %div
+            = render :partial => "search"
           %table
             %thead
               %tr
-                %th ID
                 %th Nom et Prénoms
                 %th Code Postal
                 %th Ville
@@ -22,8 +23,6 @@
             %tbody
               - for policy_holder in @policy_holders
                 %tr
-                  %td
-                    = policy_holder.id
                   %td
                     = link_to policy_holder.names + " " + policy_holder.surname, edit_policy_holder_path(policy_holder)
                   %td= policy_holder.address ? policy_holder.postcode : ""
@@ -47,5 +46,5 @@
             .clear
 :javascript
   $(function() {
-    new App.Views.PolicyHolderSearch({el: "#search-bar"});
+    new App.Views.Search({el: "#search-bar"});
   })

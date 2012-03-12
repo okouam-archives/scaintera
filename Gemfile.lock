@@ -7,7 +7,7 @@ GIT
       activesupport
 
 GIT
-  remote: git@github.com:okouam/will_paginate.git
+  remote: git@github.com:0-One/will_paginate.git
   revision: 83a04ff09023c12beffc32c4c290d3c1f8156cc7
   specs:
     will_paginate (3.0.2)

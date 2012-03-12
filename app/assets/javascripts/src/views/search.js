@@ -1,4 +1,4 @@
-App.Helpers.Search = Backbone.View.extend({
+App.Views.Search = Backbone.View.extend({
 
   events: {
     "click .aoq-wrapper": "show",

@@ -6,7 +6,7 @@ gem 'acts_as_commentable'
 gem 'haml'
 gem "enumerated_attribute"
 gem  'faker'
-gem "will_paginate", :git => 'git@github.com:okouam/will_paginate.git'
+gem "will_paginate", :git => 'git@github.com:0-One/will_paginate.git'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
 group :assets do
