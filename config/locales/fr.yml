@@ -36,7 +36,7 @@ fr:
           insurer:
             blank: Le champ assureur doit être rempli
  
-# remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+# remove these  aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:
       <<: *errors
