@@ -1,4 +1,3 @@
-
 = content_for :title, "Policy Details"
 
 .block
@@ -13,8 +12,9 @@
               = @policy_holder.names + " " + @policy_holder.surname
           = form_for @policy_holder,:url => "/policy_holders/#{@policy_holder.id}", :method => :put do |f|
             - if flash[:message] && flash[:message_type] == :errors
-              .alert-error.alert
-                = flash[:message].join(", ")             
+              - message = flash[:message].join(", ")
+              .alert-info.alert
+                = message                             
             - if flash[:message] && flash[:message_type] == :notifications
               .alert-info.alert
                 = flash[:message].join(", ")

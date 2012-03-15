@@ -17,7 +17,7 @@
                 %th Code Postal
                 %th Ville
                 %th # Bénéficiaires
-                %th Statut 
+                %th t :Statut 
                 %th Date de Demande
                 %th{style: "width: 100px"}
             %tbody

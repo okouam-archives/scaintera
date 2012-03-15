@@ -1,0 +1,45 @@
+fr:
+  errors: &errors
+    format: "%{message}" 
+    models:
+      policy_holder:
+        attributes:
+          names:
+            blank: Les prénoms doivent être remplis 
+          surname:
+            blank: Le nom doit être rempli  
+          dob:
+            blank: La date doit être remplie
+          nationality:
+            blank: La nationalité doit être remplie
+          address:
+            blank: "L'adresse doit être remplie"
+          city:
+            blank: La ville doit être remplie
+          postcode:
+            blank: La boîte postale doit être remplie
+          email:
+            blank: Le mail doit être rempli
+      beneficiary:
+        attributes:
+          names:
+            blank: Les prénoms du bénéficiaire doivent être remplis
+          surname:
+            blank: Le nom du bénéficiaire doit être rempli  
+          dob:
+            blank: La date de naissance du bénéficiaire doit être remplie 
+      product:
+        attributes:
+          premium_amount:
+            blank: Le montant de la prime doit être rempli
+            not_a_number: Le montant de la prime doit être numérique
+          insurer:
+            blank: Le champ assureur doit être rempli
+ 
+# remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
