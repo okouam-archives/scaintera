@@ -30,7 +30,7 @@ class PolicyHoldersController < ApplicationController
   def update
     policy_holder = PolicyHolder.find(params[:id])
     if policy_holder.update_attributes(params[:policy_holder])
-      flash[:message] = ["L'assure; a ete mis a jour."]
+      flash[:message] = ["L'assure a ete mis a jour."]
       flash[:message_type] = :notifications
     else
       flash[:message] = policy_holder.errors.full_messages      
