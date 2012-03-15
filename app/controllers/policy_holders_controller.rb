@@ -30,7 +30,7 @@ class PolicyHoldersController < ApplicationController
   def update
     policy_holder = PolicyHolder.find(params[:id])
     if policy_holder.update_attributes(params[:policy_holder])
-      flash[:message] = ["L'assure a ete mis a jour."]
+      flash[:message] = ["L'assure a ete mis a jour. "]
       flash[:message_type] = :notifications
     else
       flash[:message] = policy_holder.errors.full_messages      
@@ -47,7 +47,7 @@ class PolicyHoldersController < ApplicationController
     @policy_holder = PolicyHolder.new(params[:policy_holder])
     @policy_holder.user = current_user
     if @policy_holder.save
-      flash[:message] = ["L'assure a ete creer avec succes."]
+      flash[:message] = ["L'assure a ete creer avec succes. "]
       flash[:message_type] = :notifications
       redirect_to edit_policy_holder_path(@policy_holder.id)
     else
