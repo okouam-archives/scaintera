@@ -1,0 +1,61 @@
+.block
+  .block_content{style: "padding-bottom: 30px"}
+    .configuration{style: "border: 1px solid #ccc; margin-top: 20px; padding: 10px"}
+      %form{method: "post", action: "/settings/prices"}
+        %h2{style: "margin-bottom: 10px"}
+          Calculator Prices
+        %table
+          %thead
+            %tr
+              %th Type de Plan
+              %th Frais d'activation
+              %th Prélèvement
+          %tbody
+            %tr
+              %td
+                Personne de 0 a 55, active
+              %td
+                £
+                %input{name: "pricing[young_active][joining_fee]", type: "text", value: @pricing[:young_active][:joining_fee]}
+              %td
+                £
+                %input{name: "pricing[young_active][premium]", type: "text", value: @pricing[:young_active][:premium]}
+            %tr
+              %td
+                Personne de 0 a 55, mi-active
+              %td
+                £
+                %input{type: "text", name: "pricing[young_semi_active][joining_fee]", value: @pricing[:young_semi_active][:joining_fee]}
+              %td
+                £
+                %input{name: "pricing[young_semi_active][premium]", type: "text", value: @pricing[:young_semi_active][:premium]}
+            %tr
+              %td
+                Personne de 56 a 70, active
+              %td
+                £
+                %input{name: "pricing[senior_active][joining_fee]", type: "text", value: @pricing[:senior_active][:joining_fee]}
+              %td
+                £
+                %input{name: "pricing[senior_active][premium]", type: "text", value: @pricing[:senior_active][:premium]}
+            %tr
+              %td
+                Personne de 56 a 70, mi-active
+              %td
+                £
+                %input{name: "pricing[senior_semi_active][joining_fee]", type: "text", value: @pricing[:senior_semi_active][:joining_fee]}
+              %td
+                £
+                %input{name: "pricing[senior_semi_active][premium]", type: "text", value: @pricing[:senior_semi_active][:premium]}
+        %button{style: "margin-left: 10px"}
+          Accept
+      .clear
+      %h2{style: "margin-bottom: 10px; margin-top: 30px"}
+        Database Management
+      %form{method: "post", action: "/settings/reset"}
+        %button{style: "margin-left: 10px; margin-top: 10px; margin-bottom: 20px"}
+          Reset
+
+
+:css
+  .configuration input {width: 50px}

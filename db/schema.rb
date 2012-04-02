@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120111150046) do
+ActiveRecord::Schema.define(:version => 20120401223824) do
 
   create_table "beneficiaries", :force => true do |t|
     t.string   "plan"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(:version => 20120111150046) do
     t.boolean  "uses_money_transfers"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "prices", :force => true do |t|
+    t.string  "plan"
+    t.decimal "num_1"
+    t.decimal "num_2"
+    t.decimal "num_3"
+    t.decimal "num_4"
   end
 
   create_table "products", :force => true do |t|

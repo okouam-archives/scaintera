@@ -7,10 +7,10 @@ App.Views.Calculator = Backbone.View.extend({
       </td> \
       <td> \
         <select class='policy_type' style='width: 350px'> \
-          <option value='0'>Personne de 0 a 55, active</option> \
-          <option value='1'>Personne de 0 a 55, mi-active</option> \
-          <option value='2'>Personne de 56 a 70, active</option> \
-          <option value='3'>Personne de 56 a 70, mi-active</option> \
+          <option value='young_active'>Personne de 0 a 55, active</option> \
+          <option value='young_semi_active'>Personne de 0 a 55, mi-active</option> \
+          <option value='senior_active'>Personne de 56 a 70, active</option> \
+          <option value='senior_semi_active'>Personne de 56 a 70, mi-active</option> \
         </select> \
       </td> \
       <td> \
@@ -37,6 +37,10 @@ App.Views.Calculator = Backbone.View.extend({
     "click .remove": "remove",
     "change .policy_type": "changePolicyType",
     "change .beneficiary_count": "changeBeneficiaryCount"
+  },
+
+  initialize: function(options) {
+    this.pricing = options.pricing;
   },
 
   changeBeneficiaryCount: function(evt) {
@@ -70,7 +74,7 @@ App.Views.Calculator = Backbone.View.extend({
   add: function() {
     var row = $("table > tbody").append(_.template(this.TEMPLATE)).find("tr:last");
     $('.block table tr:odd').css('background-color', '#fbfbfb');
-    var pricing = this.pricing[0];
+    var pricing = this.pricing["young_active"];
     this.displayPremium(row, pricing.premium);
     this.displayJoiningFee(row, pricing.joining_fee);
     this.recalculate();

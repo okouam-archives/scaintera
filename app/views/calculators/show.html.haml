@@ -33,8 +33,9 @@
           %button.blue-button.reset
             %div{style: "width: 90px"}
               Recommencer
+          .clear
 
 :javascript
   $(function() {
-    new App.Views.Calculator({el: ".portlet"});
+    new App.Views.Calculator({el: ".portlet", pricing: #{@pricing.to_json}});
   })

@@ -16,7 +16,7 @@ class PolicyHolderSearch
     query = query.where("surname ilike ?", "%#{@surname}%") if @surname.present?
     query = query.where("postcode ilike ?", "%#{@postcode}%") if @postcode.present?
     query = query.where("dob = ?", "%#{@dob}%") if @dob.present?
-    query = query.joins([:policies => [:user]]).where("users.id = ?", user.id) if user.role == :agent
+    query = query.joins(:user).where("users.id = ?", user.id) if user.role == :agent
     query.paginate(per_page: per_page, page: page)
   end
 
