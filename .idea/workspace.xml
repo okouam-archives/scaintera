@@ -23,10 +23,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/settings/index.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="52" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.4893617">
+            <state line="50" column="39" selection-start="2125" selection-end="2125" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/application.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="65" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fr.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/locales/fr.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="49" selection-start="233" selection-end="233" vertical-scroll-proportion="0.22562674">
               <folding />
             </state>
           </provider>
@@ -49,9 +67,7 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/general.css.scss.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/buttons.css.sass.erb" />
         <option value="$PROJECT_DIR$/app/views/user_sessions/new.html.haml" />
-        <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-1.9.2-p290@global/gems/activemodel-3.1.0/lib/active_model/errors.rb" />
-        <option value="$PROJECT_DIR$/config/locales/fr.yml" />
         <option value="$PROJECT_DIR$/app/services/policy_holder_search.rb" />
         <option value="$PROJECT_DIR$/app/models/pricing.rb" />
         <option value="$PROJECT_DIR$/app/views/calculators/show.html.haml" />
@@ -62,6 +78,8 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/settings_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/settings/index.html.haml" />
+        <option value="$PROJECT_DIR$/config/application.rb" />
+        <option value="$PROJECT_DIR$/config/locales/fr.yml" />
       </list>
     </option>
   </component>
@@ -751,20 +769,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/product.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="298" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/beneficiary.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="2" selection-start="297" selection-end="566" vertical-scroll-proportion="0.2005571">
@@ -858,7 +862,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/settings/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="52" selection-start="1811" selection-end="1811" vertical-scroll-proportion="0.4893617">
+        <state line="50" column="39" selection-start="2125" selection-end="2125" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="65" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="49" selection-start="233" selection-end="233" vertical-scroll-proportion="0.22562674">
           <folding />
         </state>
       </provider>

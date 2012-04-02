@@ -75,7 +75,7 @@ end
     policy_holder: find_policy_holder,
     insurer: Faker::Company.name,
     category: Faker::Product.category,
-    expiry_date: DateTime.now + (Random.rand(100) + 100),
+    expiry_date: DateTime.now.add_days + (Random.rand(100) + 100),
     category: Faker::Product.category,
     premium_amount: Random.rand(100) + 10
   })
